@@ -49,30 +49,7 @@ sensor:
 #    hosts: 192.168.1.1/24
 #    home_interval: 10
 
-group:
-#  family:
-#    entities:
-#      - device_tracker.mario_cell
-#      - device_tracker.caitlin_cell
-  bedroom:
-    entities:
-      - light.mario_lamp_level_2_0
-      - light.caitlin_lamp_level_3_0
-
-  hallway:
-    entities:
-      - light.hallway_a_level_4_0
-      - light.hallway_b_level_5_0
-      - light.hallway_c_level_6_0
-      - light.hallway_d_level_7_0
-  weather:
-    entities:
-      - climate.upstairs
-      - sensor.upstairs_humidity
-      - sensor.upstairs_temperature
-      - sensor.upstairs_humidity_2
-      - sensor.upstairs_condition
-      - sun.sun
+group: !include group.yaml
 
 #anova:
 #  mac: 5C:31:3E:5D:E6:6A

@@ -1,0 +1,55 @@
+default_view:
+  name: Home
+  view: yes
+  icon: mdi:home
+  entities:
+    - persistent_notification.update_available 
+    - group.weather
+    - group.bedroom
+    - group.hallway
+
+#family:
+#  entities:
+#    - device_tracker.mario_cell
+#    - device_tracker.caitlin_cell
+
+Lights:
+  view: yes
+  icon: mdi:lightbulb
+  entities:
+    - group.bedroom
+    - group.hallway
+    - switch.porch
+
+Info:
+  view: yes
+  icon: mdi:settings
+  entities:
+    - group.all_automations
+    - group.all_lights
+    - group.all_switches
+    - group.weather
+    - sun.sun
+    - group.sensors
+    - media_player.living_room
+    - media_player.roku_1gs42y051113
+
+bedroom:
+  entities:
+    - light.mario_lamp_level_2_0
+    - light.caitlin_lamp_level_3_0
+hallway:
+  entities:
+    - light.hallway_a_level_4_0
+    - light.hallway_b_level_5_0
+    - light.hallway_c_level_6_0
+    - light.hallway_d_level_7_0
+
+weather:
+  entities:
+    - climate.upstairs
+    - sensor.upstairs_humidity
+    - sensor.upstairs_temperature
+    - sensor.upstairs_humidity_2
+    - sensor.upstairs_condition
+    - sun.sun
