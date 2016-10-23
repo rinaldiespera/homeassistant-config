@@ -1,0 +1,66 @@
+###############################
+#Simple morning/night triggers#
+###############################
+- alias: Turn on porch light when sun sets
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.porch
+- alias: Turn off porch light when sun rises
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.porch
+
+- alias: Turn off bedroom lights after sunrise
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: "+00:30:00"
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.bedroom
+
+########################################
+#Trigger scene changes based upon media#
+########################################
+- alias: "Bedroom Roku stopped"
+  trigger:
+    - platform: state
+      entity_id: media_player.roku_1gs42y051113
+      from: 'playing'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: scene.turn_on
+    entity_id: scene.bedroom_normal
+
+- alias: "Bedroom Roku playing"
+  trigger:
+    - platform: state
+      entity_id: media_player.roku_1gs42y051113
+      to: 'playing'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      #this matches to make sure the screen saver isn't running
+      - condition: template
+        value_template: '{{ states.media_player.roku_1gs42y051113.app_id != 76002 }}'
+  action:
+    service: scene.turn_on
+    entity_id: scene.bedroom_dimmed
