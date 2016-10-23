@@ -60,7 +60,7 @@
         state: 'below_horizon'
       #this matches to make sure the screen saver isn't running
       - condition: template
-        value_template: '{{ states.media_player.roku_1gs42y051113.app_id != 76002 }}'
+        value_template: '{{ states.media_player.roku_1gs42y051113.attributes.app_id != 76002 }}'
   action:
     service: scene.turn_on
     entity_id: scene.bedroom_dimmed
