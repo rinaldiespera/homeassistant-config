@@ -1,0 +1,220 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Limonciello House
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret elevation
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Chicago
+
+  customize:
+    #rename lighting devices for views
+    light.mario_lamp_level_2_0:
+      friendly_name: Mario's lamp
+    light.caitlin_lamp_level_3_0:
+      friendly_name: Caitlin's lamp
+    light.hallway_a_level_4_0:
+      friendly_name: Upstairs Hallway (#1)
+    light.hallway_b_level_5_0:
+      friendly_name: Upstairs Hallway (#2)
+    light.hallway_c_level_6_0:
+      friendly_name: Upstairs Hallway (#3)
+    light.hallway_d_level_7_0:
+      friendly_name: Upstairs Hallway (#4)
+    media_player.roku_1gs42y051113:
+      friendly_name: Bedroom Roku
+    switch.porch:
+      friendly_name: Front Porch
+
+    #thermostat related
+    climate.upstairs:
+      friendly_name: Nest Thermostat
+      icon: mdi:air-conditioner
+    sensor.upstairs_humidity:  
+      friendly_name: Indoor humidity
+      icon: mdi:water-percent
+    sensor.upstairs_temperature:
+      friendly_name: Outdoor temperature
+    sensor.upstairs_humidity_2:
+      friendly_name: Outdoor humidity
+    sensor.upstairs_condition:
+      friendly_name: Outdoor condition
+      icon: mdi:beach
+
+# Enables the frontend
+frontend:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  # api_password: PASSWORD
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+#for general nest component support
+nest:
+  username: !secret nest_username
+  password: !secret nest_password
+climate:
+  platform: nest
+
+#pulls in outdoor conditions from nest
+sensor:
+  - platform: nest
+    monitored_conditions:
+      - 'humidity'
+      - 'weather_temperature'
+      - 'weather_humidity'
+      - 'weather_condition'
+
+#device_tracker:
+#  - platform: nmap_tracker
+#    hosts: 192.168.1.1/24
+#    home_interval: 10
+
+group:
+#  family:
+#    entities:
+#      - device_tracker.mario_cell
+#      - device_tracker.caitlin_cell
+  bedroom:
+    entities:
+      - light.mario_lamp_level_2_0
+      - light.caitlin_lamp_level_3_0
+
+  hallway:
+    entities:
+      - light.hallway_a_level_4_0
+      - light.hallway_b_level_5_0
+      - light.hallway_c_level_6_0
+      - light.hallway_d_level_7_0
+  weather:
+    entities:
+      - climate.upstairs
+      - sensor.upstairs_humidity
+      - sensor.upstairs_temperature
+      - sensor.upstairs_humidity_2
+      - sensor.upstairs_condition
+      - sun.sun
+
+#anova:
+#  mac: 5C:31:3E:5D:E6:6A
+
+#when ready to turn on zwave
+zwave:
+  usb_path: /dev/ttyACM0
+  config_path: /srv/hass/lib/python3.4/site-packages/libopenzwave-0.3.1-py3.4-linux-armv7l.egg/config/
+
+automation:
+  - alias: Turn on porch light when sun sets
+    initial_state: True
+    hide_entity: False
+    trigger:
+      platform: sun
+      event: sunset
+    action:
+      service: homeassistant.turn_on
+      entity_id: switch.porch
+
+  - alias: Turn off porch light when sun rises
+    initial_state: True
+    hide_entity: False
+    trigger:
+      platform: sun
+      event: sunrise
+    action:
+      service: homeassistant.turn_off
+      entity_id: switch.porch
+
+automation 2:
+  alias: Turn off bedroom lights after sunrise
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: "+00:30:00"
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.bedroom
+
+#for turning on alexa support to zwave stuff
+emulated_hue:
+  expose_by_default: true
+  exposed_domains:
+    - light
+
+scene:
+  - name: Bedroom dim
+    entities:
+      light.mario_lamp_level_2_0:
+        state: on
+        brightness: 30
+      light.caitlin_lamp_level_3_0:
+        state: on
+        brightness: 30
+      light.hallway_a_level_4_0:
+        state: off
+      light.hallway_b_level_5_0:
+        state: off
+      light.hallway_c_level_6_0:
+        state: off
+      light.hallway_d_level_7_0:
+        state: off
+
+  - name: Bedroom normal
+    entities:
+      light.mario_lamp_level_2_0:
+        state: on
+        brightness: 255
+      light.caitlin_lamp_level_3_0:
+        state: on
+        brightness: 255
+
+automation 3:
+  - alias: "Bedroom Roku stopped"
+    trigger:
+      - platform: state
+        entity_id: media_player.roku_1gs42y051113
+        from: 'playing'
+    condition:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+    action:
+        service: scene.turn_on
+        entity_id: scene.bedroom_normal
+
+  - alias: "Bedroom Roku playing"
+    trigger:
+      - platform: state
+        entity_id: media_player.roku_1gs42y051113
+        to: 'playing'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      #this matches to make sure the screen saver isn't running
+      #if screensaver is changed, make sure to change app_id
+      - condition: template
+        value_template: '{{ media_player.roku_1gs42y051113.app_id != 76002 }}'
+    action:
+        service: scene.turn_on
+        entity_id: scene.bedroom_dim
