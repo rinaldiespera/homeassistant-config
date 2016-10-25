@@ -13,14 +13,6 @@ default_view:
 #    - device_tracker.mario_cell
 #    - device_tracker.caitlin_cell
 
-Lights:
-  view: yes
-  icon: mdi:lightbulb
-  entities:
-    - group.bedroom
-    - group.hallway
-    - switch.porch
-
 Info:
   view: yes
   icon: mdi:settings
