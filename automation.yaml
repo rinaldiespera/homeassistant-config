@@ -20,7 +20,17 @@
     service: homeassistant.turn_off
     entity_id: switch.porch
 
-- alias: Turn off bedroom lights after sunrise
+- alias: Turn on lights at sunset
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    service: scene.turn_on
+    entity_id: scene.dusk
+
+- alias: Turn off relevant lights at sunrise
   initial_state: True
   hide_entity: False
   trigger:
@@ -28,8 +38,8 @@
     event: sunrise
     offset: "+00:30:00"
   action:
-    service: homeassistant.turn_off
-    entity_id: group.bedroom
+    service: scene.turn_on
+    entity_id: scene.dark
 
 ########################################
 #Trigger scene changes based upon media#

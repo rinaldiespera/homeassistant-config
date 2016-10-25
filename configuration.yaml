@@ -92,4 +92,40 @@ scene:
         state: on
         brightness: 255
 
+  - name: Dark
+    entities:
+      light.mario_lamp_level_2_0:
+        state: off
+      light.caitlin_lamp_level_3_0:
+        state: off
+      light.hallway_a_level_4_0:
+        state: off
+      light.hallway_b_level_5_0:
+        state: off
+      light.hallway_c_level_6_0:
+        state: off
+      light.hallway_d_level_7_0:
+        state: off
+
+  - name: Dusk
+    entities:
+      light.mario_lamp_level_2_0:
+        state: on
+        brightness: 255
+      light.caitlin_lamp_level_3_0:
+        state: on
+        brightness: 255
+      light.hallway_a_level_4_0:
+        state: on
+        brightness: 255
+      light.hallway_b_level_5_0:
+        state: on
+        brightness: 255
+      light.hallway_c_level_6_0:
+        state: on
+        brightness: 255
+      light.hallway_d_level_7_0:
+        state: on
+        brightness: 255
+
 automation: !include automation.yaml
