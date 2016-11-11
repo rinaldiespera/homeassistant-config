@@ -3,7 +3,7 @@ default_view:
   view: yes
   icon: mdi:home
   entities:
-    - persistent_notification.update_available 
+    - updater.updater
     - group.weather
     - group.bedroom
     - group.hallway
@@ -34,7 +34,7 @@ hallway:
   entities:
     - light.hallway_a_level_4_0
     - light.hallway_b_level_5_0
-    - light.hallway_c_level_6_0
+    - light.hallway_c_level_8_0
     - light.hallway_d_level_7_0
 
 weather:

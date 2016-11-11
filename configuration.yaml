@@ -78,7 +78,7 @@ scene:
         state: off
       light.hallway_b_level_5_0:
         state: off
-      light.hallway_c_level_6_0:
+      light.hallway_c_level_8_0:
         state: off
       light.hallway_d_level_7_0:
         state: off
@@ -102,7 +102,7 @@ scene:
         state: off
       light.hallway_b_level_5_0:
         state: off
-      light.hallway_c_level_6_0:
+      light.hallway_c_level_8_0:
         state: off
       light.hallway_d_level_7_0:
         state: off
@@ -121,7 +121,7 @@ scene:
       light.hallway_b_level_5_0:
         state: on
         brightness: 255
-      light.hallway_c_level_6_0:
+      light.hallway_c_level_8_0:
         state: on
         brightness: 255
       light.hallway_d_level_7_0:
