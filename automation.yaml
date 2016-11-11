@@ -44,18 +44,19 @@
 ########################################
 #Trigger scene changes based upon media#
 ########################################
-- alias: "Bedroom Roku stopped"
-  trigger:
-    - platform: state
-      entity_id: media_player.roku_1gs42y051113
-      from: 'playing'
-  condition:
-    - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
-  action:
-    service: scene.turn_on
-    entity_id: scene.bedroom_normal
+#disabled for now, causing problems?
+#- alias: "Bedroom Roku stopped"
+#  trigger:
+#    - platform: state
+#      entity_id: media_player.roku_1gs42y051113
+#      from: 'playing'
+#  condition:
+#    - condition: state
+#      entity_id: sun.sun
+#      state: 'below_horizon'
+#  action:
+#    service: scene.turn_on
+#    entity_id: scene.bedroom_normal
 
 - alias: "Bedroom Roku playing"
   trigger:
