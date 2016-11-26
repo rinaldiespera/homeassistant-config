@@ -7,6 +7,7 @@ default_view:
     - group.weather
     - group.bedroom
     - group.hallway
+    - group.holiday
 
 #family:
 #  entities:
@@ -37,6 +38,10 @@ hallway:
     - light.hallway_b_level_5_0
     - light.hallway_c_level_8_0
     - light.hallway_d_level_7_0
+
+holiday:
+  entities:
+    - switch.outdoor_christmas_lights_switch_11_0
 
 weather:
   entities:

@@ -64,6 +64,7 @@ emulated_hue:
   expose_by_default: true
   exposed_domains:
     - light
+    - switch
 
 scene:
   - name: Bedroom dimmed

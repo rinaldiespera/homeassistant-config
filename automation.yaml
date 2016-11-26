@@ -56,6 +56,25 @@
     service: homeassistant.turn_on
     entity_id: script.timed_hallway
 
+- alias: Turn on christmas lights at sunset
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.outdoor_christmas_lights_switch_11_0
+
+- alias: Turn off christmas lights at 9PM
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: time
+    after: '21:00:00'
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.outdoor_christmas_lights_switch_11_0
 
 ########################################
 #Trigger scene changes based upon media#
