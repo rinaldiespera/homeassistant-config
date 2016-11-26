@@ -127,5 +127,29 @@ scene:
       light.hallway_d_level_7_0:
         state: on
         brightness: 255
+script:
+  timed_hallway:
+    alias: "Turn on hallway and set timer"
+    sequence:
+      # Cancel ev. old timers
+      - service: script.turn_off
+        data:
+           entity_id: script.timer_off
+      - service: homeassistant.turn_on
+        data:
+          entity_id: group.hallway
+      # Set new timer
+      - service: script.turn_on
+        data:
+          entity_id: script.timer_off
+
+  timer_off:
+    alias: "Turn off hallway after 10 minutes"
+    sequence:
+      - delay:
+          minutes: 10
+      - service: homeassistant.turn_off
+        data:
+          entity_id: group.hallway
 
 automation: !include automation.yaml

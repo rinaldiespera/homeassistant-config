@@ -41,6 +41,22 @@
     service: scene.turn_on
     entity_id: scene.dark
 
+- alias: Turn on hallway lights at motion at night
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: state
+    entity_id: sensor.hallway_motion_alarm_level_9_1
+    to: '255'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.timed_hallway
+
+
 ########################################
 #Trigger scene changes based upon media#
 ########################################

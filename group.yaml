@@ -17,6 +17,7 @@ Info:
   view: yes
   icon: mdi:settings
   entities:
+    - group.motion
     - group.all_automations
     - group.all_lights
     - group.all_switches
@@ -45,3 +46,11 @@ weather:
     - sensor.upstairs_humidity_2
     - sensor.upstairs_condition
     - sun.sun
+
+motion:
+  entities:
+    - sensor.hallway_motion_alarm_level_9_1
+    - sensor.hallway_motion_alarm_type_9_0
+    - sensor.hallway_motion_burglar_9_10
+    - sensor.hallway_motion_emergency_9_13
+    - sensor.hallway_motion_temperature_9_1
