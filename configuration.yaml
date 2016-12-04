@@ -32,8 +32,8 @@ sun:
 #Nest thermostat#
 #################
 nest:
-  username: !secret nest_username
-  password: !secret nest_password
+  client_id: !secret nest_id
+  client_secret: !secret nest_secret
 climate:
   platform: nest
 sensor:
@@ -49,7 +49,17 @@ sensor:
 #    hosts: 192.168.1.1/24
 #    home_interval: 10
 
+#########
+#Harmony#
+#########
+remote:
+  - platform: harmony
+    name: Living Room
+    host: 192.168.1.7
+    activity: 21240104
+
 group: !include group.yaml
+
 
 #anova:
 #  mac: 5C:31:3E:5D:E6:6A
