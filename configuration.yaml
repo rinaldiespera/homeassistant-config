@@ -35,14 +35,7 @@ nest:
   client_id: !secret nest_id
   client_secret: !secret nest_secret
 climate:
-  platform: nest
-sensor:
   - platform: nest
-    monitored_conditions:
-      - 'humidity'
-      - 'weather_temperature'
-      - 'weather_humidity'
-      - 'weather_condition'
 
 #device_tracker:
 #  - platform: nmap_tracker
