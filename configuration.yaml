@@ -11,7 +11,9 @@ homeassistant:
 frontend:
 
 http:
-  # api_password: !secret api_password
+  api_password: !secret api_password
+  ssl_certificate: !secret ssl_cert_path
+  ssl_key: !secret ssl_key_path
 
 # Checks for available updates
 updater:
@@ -157,3 +159,41 @@ script:
           entity_id: group.hallway
 
 automation: !include automation.yaml
+
+alexa:
+  intents:
+    MuteIntent:
+      action:
+        service: remote.send_command
+        data_template:
+          command: Mute
+          #yamaha receiver
+          device: 29753204
+          entity_id: remote.living_room
+      speech:
+        type: plaintext
+        text: As you insist
+    PlayIntent:
+      action:
+        service: remote.send_command
+        data_template:
+          command: Play
+          #nexus player
+          device: 37662777
+          entity_id: remote.living_room
+      speech:
+        type: plaintext
+        text: giggety
+
+    PauseIntent:
+      action:
+        service: remote.send_command
+        data_template:
+          command: Pause
+          #nexus player
+          device: 37662777
+          entity_id: remote.living_room
+      speech:
+        type: plaintext
+        text: Darn straight
+
