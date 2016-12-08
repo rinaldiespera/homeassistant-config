@@ -46,6 +46,7 @@ holiday:
 
 weather:
   entities:
+    - climate.upstairs
     - binary_sensor.upstairs_thermostat_online
     - sensor.upstairs_thermostat_temperature
     - sensor.upstairs_thermostat_target
