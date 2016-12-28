@@ -44,6 +44,21 @@ climate:
 #    hosts: 192.168.1.1/24
 #    home_interval: 10
 
+
+##################
+#weather tracking#
+##################
+sensor:
+  - platform: wunderground
+    api_key: !secret wunderground_key
+    monitored_conditions:
+      - weather
+      - temp_f
+      - feelslike_string
+      - relative_humidity
+      - wind_string
+      - heat_index_string
+
 #########
 #Harmony#
 #########

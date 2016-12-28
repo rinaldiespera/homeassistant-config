@@ -46,12 +46,15 @@ holiday:
 
 weather:
   entities:
-    - climate.upstairs
     - binary_sensor.upstairs_thermostat_online
-    - sensor.upstairs_thermostat_temperature
-    - sensor.upstairs_thermostat_target
-    - sensor.upstairs_thermostat_operation_mode
+    - climate.upstairs
     - sensor.upstairs_thermostat_humidity
+    - sensor.pws_temp_f
+    - sensor.pws_feelslike_string
+    - sensor.pws_weather
+    - sensor.pws_wind_string
+    - sensor.pws_relative_humidity
+    - sensor.pws_heat_index_string
     - sun.sun
 
 motion:
