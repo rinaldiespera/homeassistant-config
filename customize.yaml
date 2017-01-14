@@ -15,23 +15,6 @@ light.mario_lamp_level_2_0:
 light.caitlin_lamp_level_3_0:
   friendly_name: Caitlin's lamp
 
-#############################
-#Lighting devices in hallway#
-#############################
-light.hallway_a_level_4_0:
-  friendly_name: Upstairs Hallway (#1)
-light.hallway_b_level_5_0:
-  friendly_name: Upstairs Hallway (#2)
-light.hallway_c_level_8_0:
-  friendly_name: Upstairs Hallway (#3)
-light.hallway_d_level_7_0:
-  friendly_name: Upstairs Hallway (#4)
-
-################
-#motion sensors#
-################
-sensor.hallway_motion_alarm_level_9_1:
-  friendly_name: Upstairs Hallway Motion Level
 #################
 #Outdoor devices#
 #################

@@ -6,7 +6,6 @@ default_view:
     - updater.updater
     - group.weather
     - group.bedroom
-    - group.hallway
     - group.holiday
 
 #family:
@@ -33,16 +32,10 @@ bedroom:
   entities:
     - light.mario_lamp_level_2_0
     - light.caitlin_lamp_level_3_0
-hallway:
-  entities:
-    - light.hallway_a_level_4_0
-    - light.hallway_b_level_5_0
-    - light.hallway_c_level_8_0
-    - light.hallway_d_level_7_0
 
-holiday:
-  entities:
-    - switch.outdoor_christmas_lights_switch_11_0
+#holiday:
+#  entities:
+#    - switch.outdoor_christmas_lights_switch_11_0
 
 weather:
   entities:
@@ -56,11 +49,3 @@ weather:
     - sensor.pws_relative_humidity
     - sensor.pws_heat_index_string
     - sun.sun
-
-motion:
-  entities:
-    - sensor.hallway_motion_alarm_level_9_1
-    - sensor.hallway_motion_alarm_type_9_0
-    - sensor.hallway_motion_burglar_9_10
-    - sensor.hallway_motion_emergency_9_13
-    - sensor.hallway_motion_temperature_9_1
