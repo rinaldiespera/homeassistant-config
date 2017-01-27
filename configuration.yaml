@@ -95,6 +95,8 @@ scene:
       light.caitlin_lamp_level_3_0:
         state: on
         brightness: 30
+      switch.master_light_switch_12_0:
+        state: off
 
   - name: Bedroom normal
     entities:
@@ -104,12 +106,26 @@ scene:
       light.caitlin_lamp_level_3_0:
         state: on
         brightness: 255
+      switch.master_light_switch_12_0:
+        state: on
 
   - name: Dark
     entities:
       light.mario_lamp_level_2_0:
         state: off
       light.caitlin_lamp_level_3_0:
+        state: off
+      switch.master_light_switch_12_0:
+        state: off
+      switch.porch_switch_13_0:
+        state: off
+      switch.dining_room_switch_14_0:
+        state: off
+      light.guest_hall_level_4_0:
+        state: off
+      light.master_hall_level_8_0:
+        state: off
+      light.powder_hall_level_7_0:
         state: off
 
   - name: Dusk
@@ -118,6 +134,19 @@ scene:
         state: on
         brightness: 255
       light.caitlin_lamp_level_3_0:
+        state: on
+        brightness: 255
+      switch.master_light_switch_12_0:
+        state: on
+      switch.dining_room_switch_14_0:
+        state: on
+      light.guest_hall_level_4_0:
+        state: on
+        brightness: 255
+      light.master_hall_level_8_0:
+        state: on
+        brightness: 255
+      light.powder_hall_level_7_0:
         state: on
         brightness: 255
 

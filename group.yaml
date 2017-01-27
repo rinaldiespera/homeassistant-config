@@ -6,7 +6,9 @@ default_view:
     - updater.updater
     - group.weather
     - group.bedroom
+    - group.hallways
     - group.holiday
+    - group.garage
 
 #family:
 #  entities:
@@ -28,10 +30,26 @@ Info:
     - media_player.roku_1gs42y051113
     - remote.living_room
 
+family:
+    - switch.porch_switch_13_0
+    - switch.dining_room_switch_14_0
+    - light.living_room_level_15_0:
+
+garage:
+  entities:
+    - light.garage_level_5_0
+
+hallways:
+  entities:
+    - light.guest_hall_level_4_0
+    - light.powder_hall_level_7_0
+    - light.master_hall_level_8_0
+
 bedroom:
   entities:
     - light.mario_lamp_level_2_0
     - light.caitlin_lamp_level_3_0
+    - switch.master_light_switch_12_0
 
 #holiday:
 #  entities:

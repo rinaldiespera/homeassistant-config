@@ -7,19 +7,35 @@ group.all_switches:
 group.all_automations:
   hidden: false
 
+switch.dining_room_switch_14_0:
+   friendly_name: Dining Room
+
 #################################
 #Lighting devices in the bedroom#
 #################################
+light.guest_hall_level_4_0:
+  friendly_name: Guest Hallway
+light.garage_level_5_0:
+  friendly_name: Garage
+light.master_hall_level_8_0:
+  friendly_name: Master Hallway
+light.powder_hall_level_7_0:
+  friendly_name: Powder Hallway
 light.mario_lamp_level_2_0:
   friendly_name: Mario's lamp
 light.caitlin_lamp_level_3_0:
   friendly_name: Caitlin's lamp
-
+switch.master_light_switch_12_0:
+  friendly_name: Master light
+light.living_room_level_15_0:
+  friendly_name: Living Room
 #################
 #Outdoor devices#
 #################
-switch.porch:
-  friendly_name: Front Porch
+switch.patio_switch_13_0:
+  friendly_name: Patio
+#switch.porch:
+#  friendly_name: Front Porch
 #switch.outdoor_christmas_lights_switch_11_0:
 #  friendly_name: Christmas Lights
 
