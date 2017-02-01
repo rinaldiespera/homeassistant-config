@@ -79,34 +79,30 @@
 ########################################
 #Trigger scene changes based upon media#
 ########################################
-#disabled for now, causing problems?
-#- alias: "Bedroom Roku stopped"
-#  trigger:
-#    - platform: state
-#      entity_id: media_player.roku_1gs42y051113
-#      from: 'playing'
-#  condition:
-#    - condition: state
-#      entity_id: sun.sun
-#      state: 'below_horizon'
-#  action:
-#    service: scene.turn_on
-#    entity_id: scene.bedroom_normal
-
-- alias: "Bedroom Roku playing"
+- alias: "Bedroom Roku stopped"
   trigger:
     - platform: state
       entity_id: media_player.bedroom
-      to: 'playing'
+      to: 'idle'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: scene.turn_on
+    entity_id: scene.dark
+
+- alias: "Bedroom Roku no longer idle"
+  trigger:
+    - platform: state
+      entity_id: media_player.bedroom
+      to: 'home'
   condition:
     condition: and
     conditions:
       - condition: state
         entity_id: sun.sun
         state: 'below_horizon'
-      #this matches to make sure the screen saver isn't running
-      - condition: template
-        value_template: '{{ states.media_player.bedroom.attributes.app_id != "76002" }}'
   action:
     service: scene.turn_on
     entity_id: scene.bedroom_dimmed
