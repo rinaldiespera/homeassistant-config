@@ -61,6 +61,21 @@
 #    service: homeassistant.turn_off
 #    entity_id: switch.outdoor_christmas_lights_switch_11_0
 
+- alias: Turn on hallway lights at motion at night
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: state
+    entity_id: sensor.hallway_motion_alarm_level_9_1
+    to: '255'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.timed_guest_hallway
+
 ########################################
 #Trigger scene changes based upon media#
 ########################################
@@ -81,7 +96,7 @@
 - alias: "Bedroom Roku playing"
   trigger:
     - platform: state
-      entity_id: media_player.roku_1gs42y051113
+      entity_id: media_player.bedroom
       to: 'playing'
   condition:
     condition: and
@@ -91,7 +106,7 @@
         state: 'below_horizon'
       #this matches to make sure the screen saver isn't running
       - condition: template
-        value_template: '{{ states.media_player.roku_1gs42y051113.attributes.app_id != "76002" }}'
+        value_template: '{{ states.media_player.bedroom.attributes.app_id != "76002" }}'
   action:
     service: scene.turn_on
     entity_id: scene.bedroom_dimmed

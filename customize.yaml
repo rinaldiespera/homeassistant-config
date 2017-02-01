@@ -29,6 +29,9 @@ light.living_room_level_15_0:
 switch.main_hallway_switch_16_0:
   friendly_name: Main Hallway
 
+sensor.hallway_motion_alarm_level_9_1:
+  friendly_name: Guest Hallway Motion Level
+
 #################
 #Outdoor devices#
 #################
@@ -42,7 +45,7 @@ switch.porch:
 ###############
 #Media Devices#
 ###############
-media_player.roku_1gs42y051113:
+media_player.bedroom:
   friendly_name: Bedroom Roku
 
 #################
