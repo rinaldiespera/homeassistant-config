@@ -1,26 +1,26 @@
 ###############################
 #Simple morning/night triggers#
 ###############################
-#- alias: Turn on porch light when sun sets
-#  initial_state: True
-#  hide_entity: False
-#  trigger:
-#    platform: sun
-#    event: sunset
-#  action:
-#    service: homeassistant.turn_on
-#    entity_id: switch.porch
-#- alias: Turn off porch light when sun rises
-#  initial_state: True
-#  hide_entity: False
-#  trigger:
-#    platform: sun
-#    event: sunrise
-#  action:
-#    service: homeassistant.turn_off
-#    entity_id: switch.porch
+- alias: Front porch on @sundown
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.porch
+- alias: Front porch off @22:30
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: time
+    after: '22:30:00'
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.porch
 
-- alias: Turn on lights at sunset
+- alias: Activate lights @sundown
   initial_state: True
   hide_entity: False
   trigger:
@@ -30,7 +30,7 @@
     service: scene.turn_on
     entity_id: scene.dusk
 
-- alias: Turn off relevant lights at sunrise
+- alias: Lights off @sunrise
   initial_state: True
   hide_entity: False
   trigger:

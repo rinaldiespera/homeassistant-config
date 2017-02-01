@@ -81,6 +81,7 @@ zwave:
 
 #for turning on echo support to zwave stuff
 emulated_hue:
+  type: alexa
   expose_by_default: true
   exposed_domains:
     - light

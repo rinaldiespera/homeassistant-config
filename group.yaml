@@ -9,6 +9,7 @@ default_view:
     - group.hallways
     - group.holiday
     - group.garage
+    - group.family
 
 #family:
 #  entities:
@@ -31,9 +32,11 @@ Info:
     - remote.living_room
 
 family:
+  entities:
+    - switch.porch
     - switch.porch_switch_13_0
     - switch.dining_room_switch_14_0
-    - light.living_room_level_15_0:
+    - light.living_room_level_15_0
 
 garage:
   entities:
@@ -44,6 +47,7 @@ hallways:
     - light.guest_hall_level_4_0
     - light.powder_hall_level_7_0
     - light.master_hall_level_8_0
+    - switch.main_hallway_switch_16_0
 
 bedroom:
   entities:

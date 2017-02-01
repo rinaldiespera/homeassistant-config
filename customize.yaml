@@ -10,9 +10,6 @@ group.all_automations:
 switch.dining_room_switch_14_0:
    friendly_name: Dining Room
 
-#################################
-#Lighting devices in the bedroom#
-#################################
 light.guest_hall_level_4_0:
   friendly_name: Guest Hallway
 light.garage_level_5_0:
@@ -29,13 +26,16 @@ switch.master_light_switch_12_0:
   friendly_name: Master light
 light.living_room_level_15_0:
   friendly_name: Living Room
+switch.main_hallway_switch_16_0:
+  friendly_name: Main Hallway
+
 #################
 #Outdoor devices#
 #################
 switch.patio_switch_13_0:
   friendly_name: Patio
-#switch.porch:
-#  friendly_name: Front Porch
+switch.porch:
+  friendly_name: Front Porch
 #switch.outdoor_christmas_lights_switch_11_0:
 #  friendly_name: Christmas Lights
 
