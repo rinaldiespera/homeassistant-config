@@ -172,16 +172,16 @@ script:
       # Cancel ev. old timers
       - service: script.turn_off
         data:
-           entity_id: script.timer_hallway_off
+           entity_id: script.timer_guest_hallway_off
       - service: homeassistant.turn_on
         data:
           entity_id: light.guest_hall_level_4_0
       # Set new timer
       - service: script.turn_on
         data:
-          entity_id: script.timer_hallway_off
+          entity_id: script.timer_guest_hallway_off
 
-  timer_hallway_off:
+  timer_guest_hallway_off:
     alias: "Turn off hallway after 5 minutes"
     sequence:
       - delay:
@@ -189,6 +189,30 @@ script:
       - service: homeassistant.turn_off
         data:
           entity_id: light.guest_hall_level_4_0
+
+  timed_master_hallway:
+    alias: "Turn on master hallway and set timer"
+    sequence:
+      # Cancel ev. old timers
+      - service: script.turn_off
+        data:
+           entity_id: script.timer_master_hallway_off
+      - service: homeassistant.turn_on
+        data:
+          entity_id: light.master_hall_level_8_0
+      # Set new timer
+      - service: script.turn_on
+        data:
+          entity_id: script.timer_master_hallway_off
+
+  timer_master_hallway_off:
+    alias: "Turn off hallway after 5 minutes"
+    sequence:
+      - delay:
+          minutes: 5
+      - service: homeassistant.turn_off
+        data:
+          entity_id: light.master_hall_level_8_0
 
   timed_garage:
     alias: "Turn on garage and set timer"

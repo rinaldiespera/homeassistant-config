@@ -52,6 +52,8 @@ sensors:
     - sensor.garage_door_alarm_level_17_1
     - sensor.garage_door_alarm_type_17_0
     - binary_sensor.garage_door_sensor_17_0
+    - sensor.garage_house_door_alarm_level_18_1
+    - sensor.garage_house_door_alarm_type_18_0
 
 hallways:
   entities:
