@@ -47,6 +47,12 @@ sensor.garage_house_door_alarm_level_18_1:
 sensor.garage_house_door_alarm_type_18_0:
   friendly_name: Garage/House door alarm type
 
+sensor.patio_door_alarm_level_19_1:
+  friendly_name: Patio door alarm level
+
+sensor.patio_door_alarm_type_18_0:
+  friendly_name: Patio door alarm type
+
 
 #################
 #Outdoor devices#

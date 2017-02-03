@@ -238,6 +238,30 @@ script:
         data:
           entity_id: light.garage_level_5_0
 
+  timed_patio:
+    alias: "Turn on patio and set timer"
+    sequence:
+      # Cancel ev. old timers
+      - service: script.turn_off
+        data:
+           entity_id: script.timer_patio_off
+      - service: homeassistant.turn_on
+        data:
+          entity_id: switch.patio_switch_13_0
+      # Set new timer
+      - service: script.turn_on
+        data:
+          entity_id: script.timer_patio_off
+
+  timer_patio_off:
+    alias: "Turn off patio after 7 minutes"
+    sequence:
+      - delay:
+          minutes: 7
+      - service: homeassistant.turn_off
+        data:
+          entity_id: switch.patio_switch_13_0
+
 automation: !include automation.yaml
 
 alexa:

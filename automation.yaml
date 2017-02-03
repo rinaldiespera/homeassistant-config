@@ -90,7 +90,21 @@
   action:
     service: homeassistant.turn_on
     entity_id: script.timed_master_hallway
-  
+
+- alias: Turn on patio when door opens
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: state
+    entity_id: sensor.patio_door_alarm_level_19_1
+    to: '255'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.timed_patio 
 
 - alias: Turn on garage lights when door is opened
   initial_state: True
