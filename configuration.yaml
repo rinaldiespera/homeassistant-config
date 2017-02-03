@@ -30,6 +30,20 @@ logbook:
 # Track the sun
 sun:
 
+recorder:
+  purge_days: 5
+  exclude:
+    domains:
+      - updater
+    entities:
+      - sun.sun
+      - sensor.pws_feelslike_string
+      - sensor.pws_heat_index_string
+      - sensor.pws_relative_humidity
+      - sensor.pws_temp_f
+      - sensor.pws_weather
+      - sensor.pws_wind_string
+
 #################
 #Nest thermostat#
 #################
@@ -158,16 +172,16 @@ script:
       # Cancel ev. old timers
       - service: script.turn_off
         data:
-           entity_id: script.timer_off
+           entity_id: script.timer_hallway_off
       - service: homeassistant.turn_on
         data:
           entity_id: light.guest_hall_level_4_0
       # Set new timer
       - service: script.turn_on
         data:
-          entity_id: script.timer_off
+          entity_id: script.timer_hallway_off
 
-  timer_off:
+  timer_hallway_off:
     alias: "Turn off hallway after 5 minutes"
     sequence:
       - delay:
@@ -175,6 +189,30 @@ script:
       - service: homeassistant.turn_off
         data:
           entity_id: light.guest_hall_level_4_0
+
+  timed_garage:
+    alias: "Turn on garage and set timer"
+    sequence:
+      # Cancel ev. old timers
+      - service: script.turn_off
+        data:
+           entity_id: script.timer_garage_off
+      - service: homeassistant.turn_on
+        data:
+          entity_id: light.garage_level_5_0
+      # Set new timer
+      - service: script.turn_on
+        data:
+          entity_id: script.timer_garage_off
+
+  timer_garage_off:
+    alias: "Turn off garage after 5 minutes"
+    sequence:
+      - delay:
+          minutes: 5
+      - service: homeassistant.turn_off
+        data:
+          entity_id: light.garage_level_5_0
 
 automation: !include automation.yaml
 

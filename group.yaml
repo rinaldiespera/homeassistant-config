@@ -43,12 +43,15 @@ garage:
   entities:
     - light.garage_level_5_0
 
-motion:
+sensors:
   entities:
     - sensor.hallway_motion_alarm_level_9_1
     - sensor.hallway_motion_alarm_type_9_0
     - sensor.hallway_motion_burglar_9_10
     - sensor.hallway_motion_emergency_9_13
+    - sensor.garage_door_alarm_level_17_1
+    - sensor.garage_door_alarm_type_17_0
+    - binary_sensor.garage_door_sensor_17_0
 
 hallways:
   entities:

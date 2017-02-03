@@ -32,6 +32,15 @@ switch.main_hallway_switch_16_0:
 sensor.hallway_motion_alarm_level_9_1:
   friendly_name: Guest Hallway Motion Level
 
+binary_sensor.garage_sensor_17_0:
+  friendly_name: Garage door (binary sensor)
+
+sensor.garage_door_alarm_level_17_1:
+  friendly_name: Garage door alarm level
+
+sensor.garage_door_alarm_type_17_0:
+  friendly_name: Garage door alarm type
+
 #################
 #Outdoor devices#
 #################

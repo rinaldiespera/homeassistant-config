@@ -76,6 +76,17 @@
     service: homeassistant.turn_on
     entity_id: script.timed_guest_hallway
 
+- alias: Turn on garage lights when door is opened
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: state
+    entity_id: sensor.garage_door_alarm_level_17_1
+    to: '255'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.timed_garage
+
 ########################################
 #Trigger scene changes based upon media#
 ########################################
