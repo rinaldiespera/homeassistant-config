@@ -83,10 +83,6 @@
     platform: state
     entity_id: sensor.garage_house_door_alarm_level_18_1
     to: '255'
-  condition:
-    - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
   action:
     service: homeassistant.turn_on
     entity_id: script.timed_master_hallway
