@@ -53,6 +53,9 @@ sensor.patio_door_alarm_level_19_1:
 sensor.patio_door_alarm_type_18_0:
   friendly_name: Patio door alarm type
 
+light.kitchen_level_20_0:
+  friendly_name: Kitchen
+
 
 #################
 #Outdoor devices#

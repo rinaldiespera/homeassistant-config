@@ -115,7 +115,7 @@
       to: '255'
     - platform: state
       entity_id: sensor.garage_house_door_alarm_level_18_1
-      to: '0'
+      to: '255'
   action:
     service: homeassistant.turn_on
     entity_id: script.timed_garage

@@ -38,7 +38,7 @@ family:
     - switch.porch_switch_13_0
     - switch.dining_room_switch_14_0
     - light.living_room_level_15_0
-
+    - light.kitchen_level_20_0
 garage:
   entities:
     - light.garage_level_5_0
