@@ -76,6 +76,21 @@
     service: homeassistant.turn_on
     entity_id: script.timed_guest_hallway
 
+- alias: Turn on kitchen lights at motion at night
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: state
+    entity_id: sensor.kitchen_motion
+    to: 'motion'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.timed_kitchen
+
 - alias: Turn on master hallway when door opens
   initial_state: True
   hide_entity: False

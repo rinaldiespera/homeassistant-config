@@ -1,112 +1,16 @@
 
-b4eeb4a60b3e:
-  name: --
-  mac: B4:EE:B4:A6:0B:3E
-  picture: 
-  track: no
-  hide_if_away: no
+flex:
+  hide_if_away: false
+  mac: BLE_DE:C8:C0:84:61:70
+  name: Flex
+  picture:
+  track: true
+  vendor: unknown
 
-roku:
-  name: Roku 3
-  mac: DC:3A:5E:96:6A:CF
-  picture: 
-  track: no
-  hide_if_away: no
-
-b4750e9120f1:
-  name: --
-  mac: B4:75:0E:91:20:F1
-  picture: 
-  track: no
-  hide_if_away: no
-
-harmonyhub:
-  name: Harmony Hub
-  mac: 00:04:20:F3:09:54
-  picture: 
-  track: no
-  hide_if_away: no
-
-50f5da7ea18b:
-  name: --
-  mac: 50:F5:DA:7E:A1:8B
-  picture: 
-  track: no
-  hide_if_away: no
-
-5087b800275e:
-  name: --
-  mac: 50:87:B8:00:27:5E
-  picture: 
-  track: no
-  hide_if_away: no
-
-mario_laptop:
-  name: Mario's Laptop
-  mac: 9C:AD:97:D1:53:6F
-  picture: 
-  track: no
-  hide_if_away: no
-
-02aa01ac341303v5:
-  name: 02AA01AC341303V5
-  mac: 18:B4:30:0E:18:C0
-  picture: 
-  track: no
-  hide_if_away: no
-
-android_unknown:
-  name: android-4786691f9b775d53
-  mac: 08:62:66:04:8D:B3
-  picture: 
-  track: no
-  hide_if_away: yes
-
-openhabianpi:
-  name: HASS Raspberry Pi
-  mac: B8:27:EB:EF:C8:E3
-  picture: 
-  track: no
-  hide_if_away: no
-
-mario_tablet:
-  name: android-1b615319ae9272a1
-  mac: 00:04:4B:2D:63:90
-  picture: 
-  track: no
-  hide_if_away: no
-
-c404154a14e2:
-  name: c404154a14e2
-  mac: C4:04:15:4A:14:E2
-  picture: 
-  track: no
-  hide_if_away: no
-
-54e43ad503f8:
-  name: 54e43ad503f8
-  mac: 54:E4:3A:D5:03:F8
-  picture: 
-  track: no
-  hide_if_away: no
-
-b418d16b2fa2:
-  name: b418d16b2fa2
-  mac: B4:18:D1:6B:2F:A2
-  picture: 
-  track: no
-  hide_if_away: no
-
-caitlin_cell:
-  name: Caitlin
-  mac: E8:91:20:43:BE:AA
-  picture: 
-  track: no
-  hide_if_away: no
-
-mario_cell:
-  name: Mario
-  mac: E8:91:20:44:40:C8
-  picture: 
-  track: no
-  hide_if_away: no
+vivosmart:
+  hide_if_away: false
+  mac: BLE_DD:AE:99:3C:3E:43
+  name: vivosmart
+  picture:
+  track: true
+  vendor: unknown

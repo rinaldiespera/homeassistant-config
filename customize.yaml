@@ -59,6 +59,12 @@ sensor.patio_door_alarm_type_18_0:
 light.kitchen_level_20_0:
   friendly_name: Kitchen
 
+sensor.hallway_motion_alarm_level_21_1:
+  friendly_name: Kitchen Motion Level
+
+sensor.hallway_motion_temperature_21_1:
+  friendly_name: Kitchen Temperature
+
 
 #################
 #Outdoor devices#

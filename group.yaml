@@ -11,11 +11,12 @@ default_view:
     - group.garage
     - group.outside
     - group.livingareas
+    - group.family
 
-#family:
-#  entities:
-#    - device_tracker.mario_cell
-#    - device_tracker.caitlin_cell
+family:
+  entities:
+    - device_tracker.vivosmart
+    - device_tracker.flex
 
 Info:
   view: yes
@@ -25,7 +26,6 @@ Info:
     - group.all_lights
     - group.all_switches
     - group.temperatures
-    - group.motion
     - sun.sun
     - group.sensors
     - media_player.living_room
@@ -54,6 +54,7 @@ Sensors:
     - sensor.garage_house_door
     - sensor.patio_door
     - sensor.guest_motion
+    - sensor.kitchen_motion
 
 Hallways:
   entities:

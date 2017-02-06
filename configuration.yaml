@@ -58,6 +58,8 @@ climate:
 #    hosts: 192.168.1.1/24
 #    home_interval: 10
 
+device_tracker:
+  - platform: bluetooth_le_tracker
 
 ##################
 #weather tracking and hand built sensors#
@@ -90,6 +92,10 @@ sensor:
         value_template: '{% if is_state("sensor.hallway_motion_alarm_level_9_1", "0") %}none{% else %}motion{% endif %}'
         friendly_name: 'Guest Hallway Motion status'
         entity_id: sensor.hallway_motion_alarm_level_9_1
+      kitchen_motion:
+        value_template: '{% if is_state("sensor.kitchen_motion_alarm_level_21_1", "0") %}none{% else %}motion{% endif %}'
+        friendly_name: 'Kitchen Motion status'
+        entity_id: sensor.kitchen_motion_alarm_level_21_1
 
 #########
 #Harmony#
@@ -207,6 +213,30 @@ script:
       - service: homeassistant.turn_off
         data:
           entity_id: light.guest_hall_level_4_0
+
+  timed_kitchen:
+    alias: "Turn on kitchen and set timer"
+    sequence:
+      # Cancel ev. old timers
+      - service: script.turn_off
+        data:
+           entity_id: script.timer_kitchen_off
+      - service: homeassistant.turn_on
+        data:
+          entity_id: light.kitchen_level_20_0
+      # Set new timer
+      - service: script.turn_on
+        data:
+          entity_id: script.timer_kitchen_off
+
+  timer_kitchen_off:
+    alias: "Turn off kitchen after 10 minutes"
+    sequence:
+      - delay:
+          minutes: 10
+      - service: homeassistant.turn_off
+        data:
+          entity_id: light.kitchen_level_20_0
 
   timed_master_hallway:
     alias: "Turn on master hallway and set timer"
