@@ -4,12 +4,13 @@ default_view:
   icon: mdi:home
   entities:
     - updater.updater
-    - group.weather
-    - group.bedroom
+    - group.temperatures
+    - group.masterbedroom
     - group.hallways
     - group.holiday
     - group.garage
-    - group.family
+    - group.outside
+    - group.livingareas
 
 #family:
 #  entities:
@@ -23,7 +24,7 @@ Info:
     - group.all_automations
     - group.all_lights
     - group.all_switches
-    - group.weather
+    - group.temperatures
     - group.motion
     - sun.sun
     - group.sensors
@@ -32,39 +33,36 @@ Info:
     - remote.living_room
     - climate.nest
 
-family:
+Outside:
   entities:
     - switch.porch
-    - switch.porch_switch_13_0
+    - switch.patio_switch_13_0
+
+LivingAreas:
+  entities:
     - switch.dining_room_switch_14_0
-    - light.living_room_level_15_0
     - light.kitchen_level_20_0
-garage:
+    - light.living_room_level_15_0    
+
+Garage:
   entities:
     - light.garage_level_5_0
 
-sensors:
+Sensors:
   entities:
-    - sensor.hallway_motion_alarm_level_9_1
-    - sensor.hallway_motion_alarm_type_9_0
-    - sensor.hallway_motion_burglar_9_10
-    - sensor.hallway_motion_emergency_9_13
-    - sensor.garage_door_alarm_level_17_1
-    - sensor.garage_door_alarm_type_17_0
-    - binary_sensor.garage_door_sensor_17_0
-    - sensor.garage_house_door_alarm_level_18_1
-    - sensor.garage_house_door_alarm_type_18_0
-    - sensor.patio_door_alarm_level_19_1
-    - sensor.patio_door_alarm_type_19_0
+    - sensor.garage_door
+    - sensor.garage_house_door
+    - sensor.patio_door
+    - sensor.guest_motion
 
-hallways:
+Hallways:
   entities:
     - light.guest_hall_level_4_0
     - light.powder_hall_level_7_0
     - light.master_hall_level_8_0
     - switch.main_hallway_switch_16_0
 
-bedroom:
+MasterBedroom:
   entities:
     - light.mario_lamp_level_2_0
     - light.caitlin_lamp_level_3_0
@@ -74,8 +72,10 @@ bedroom:
 #  entities:
 #    - switch.outdoor_christmas_lights_switch_11_0
 
-weather:
+Temperatures:
   entities:
+    - climate.nest
+    - sensor.hallway_motion_temperature_9_1
     - binary_sensor.upstairs_thermostat_online
     - climate.upstairs
     - sensor.upstairs_thermostat_humidity
