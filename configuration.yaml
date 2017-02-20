@@ -58,8 +58,8 @@ climate:
 #    hosts: 192.168.1.1/24
 #    home_interval: 10
 
-device_tracker:
-  - platform: bluetooth_le_tracker
+#device_tracker:
+#  - platform: bluetooth_le_tracker
 
 ##################
 #weather tracking and hand built sensors#
@@ -116,6 +116,41 @@ zwave:
   usb_path: /dev/ttyACM0
   config_path: /srv/hass/lib/python3.4/site-packages/libopenzwave-0.3.1-py3.4-linux-armv7l.egg/config/
   autoheal: false
+  customize:
+    light.mario_lamp_level_2_0:
+      refresh_value: true
+    light.caitlin_lamp_level_3_0:
+      refresh_value: true
+    light.guest_hall_level_4_0:
+      refresh_value: true
+    light.garage_level_5_0:
+      refresh_value: true
+    light.powder_hall_level_7_0:
+      refresh_value: true
+#    light.master_hall_level_8_0:
+#      refresh_value: true
+#      polling_intensity: 1
+    switch.outdoor_christmas_lights_switch_11_0:
+      ignored: true
+#    switch.master_light_switch_12_0:
+#      refresh_value: true
+#      polling_intensity: 1
+#    switch.patio_switch_13_0:
+#      refresh_value: true
+#      polling_intensity: 1
+#    switch.dining_room_switch_14_0:
+#      refresh_value: true
+#      polling_intensity: 1
+#    light.living_room_level_15_0:
+#      refresh_value: true
+#      polling_intensity: 1
+#    switch.main_hallway_switch_16_0:
+#      refresh_value: true
+#      polling_intensity: 1
+#    light.kitchen_level_20_0:
+#      refresh_value: true
+#      polling_intensity: 1
+
 
 #for turning on echo support to zwave stuff
 emulated_hue:
