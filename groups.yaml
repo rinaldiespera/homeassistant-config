@@ -3,20 +3,13 @@ default_view:
   view: yes
   icon: mdi:home
   entities:
-    - updater.updater
     - group.temperatures
     - group.masterbedroom
     - group.hallways
-    - group.holiday
     - group.garage
     - group.outside
     - group.livingareas
-    - group.family
-
-family:
-  entities:
-    - device_tracker.vivosmart
-    - device_tracker.flex
+#    - group.holiday
 
 Info:
   view: yes
