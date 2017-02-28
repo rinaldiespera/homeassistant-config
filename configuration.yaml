@@ -178,8 +178,6 @@ scene:
       light.caitlin_lamp_level_3_0:
         state: on
         brightness: 255
-      switch.master_light_switch_12_0:
-        state: on
       switch.dining_room_switch_14_0:
         state: on
       light.guest_hall_level_4_0:
