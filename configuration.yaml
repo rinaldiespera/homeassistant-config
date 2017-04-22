@@ -199,10 +199,10 @@ script:
           entity_id: script.timer_guest_hallway_off
 
   timer_guest_hallway_off:
-    alias: "Turn off hallway after 5 minutes"
+    alias: "Turn off hallway after 10 minutes"
     sequence:
       - delay:
-          minutes: 5
+          minutes: 10
       - service: homeassistant.turn_off
         data:
           entity_id: light.guest_hall_level_4_0
@@ -317,6 +317,20 @@ binary_sensor:
 
 alexa:
   intents:
+    GoodMorningIntent:
+      action:
+        service: scene.turn_on
+        entity_id: scene.dusk
+      speech:
+        type: plaintext
+        text: Yes sir
+    GoodNightIntent:
+      action:
+        service: scene.turn_on
+        entity_id: scene.dark
+      speech:
+        type: plaintext
+        text: Bite the bed bugs back
     MuteIntent:
       action:
         service: remote.send_command
