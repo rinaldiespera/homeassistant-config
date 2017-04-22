@@ -166,4 +166,4 @@
         state: 'below_horizon'
   action:
     service: scene.turn_on
-    entity_id: scene.bedroom_dimmed
+    entity_id: scene.watch_tv_bedroom

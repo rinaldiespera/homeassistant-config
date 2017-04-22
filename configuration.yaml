@@ -129,27 +129,15 @@ emulated_hue:
     - switch
 
 scene:
-  - name: Bedroom dimmed
+  - name: Watch TV Bedroom
     entities:
       light.mario_lamp_level_2_0:
         state: on
         brightness: 30
       light.caitlin_lamp_level_3_0:
-        state: on
-        brightness: 30
+        state: off
       switch.master_light_switch_12_0:
         state: off
-
-  - name: Bedroom normal
-    entities:
-      light.mario_lamp_level_2_0:
-        state: on
-        brightness: 255
-      light.caitlin_lamp_level_3_0:
-        state: on
-        brightness: 255
-      switch.master_light_switch_12_0:
-        state: on
 
   - name: Dark
     entities:
@@ -163,11 +151,15 @@ scene:
         state: off
       switch.dining_room_switch_14_0:
         state: off
+      light.kitchen_level_20_0:
+        state: off
       light.guest_hall_level_4_0:
         state: off
       light.master_hall_level_8_0:
         state: off
       light.powder_hall_level_7_0:
+        state: off
+      switch.main_hallway_switch_16_0:
         state: off
 
   - name: Dusk
