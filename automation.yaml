@@ -20,12 +20,12 @@
     service: homeassistant.turn_off
     entity_id: switch.porch
 
-- alias: Activate lights @sundown
+- alias: Activate lights @dinner
   initial_state: True
   hide_entity: False
   trigger:
-    platform: sun
-    event: sunset
+    platform: time
+    after: '17:50:00'
   action:
     service: scene.turn_on
     entity_id: scene.dusk
