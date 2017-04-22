@@ -17,8 +17,8 @@
     platform: time
     after: '22:30:00'
   action:
-    service: homeassistant.turn_off
-    entity_id: switch.porch
+    service: scene.turn_on
+    entity_id: switch.night_light
 
 - alias: Activate lights @dinner
   initial_state: True

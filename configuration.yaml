@@ -139,6 +139,13 @@ scene:
       switch.master_light_switch_12_0:
         state: off
 
+  - name: Night Light
+    entities:
+      light.kitchen_level_20_0:
+        brightness: 5
+      switch.porch:
+        state: off
+
   - name: Dark
     entities:
       light.mario_lamp_level_2_0:
