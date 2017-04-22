@@ -65,9 +65,12 @@
   initial_state: True
   hide_entity: False
   trigger:
-    platform: state
-    entity_id: sensor.guest_motion
-    to: 'motion'
+    - platform: state
+      entity_id: sensor.guest_motion
+      to: 'motion'
+    - platform: state
+      entity_id: sensor.guest_motion
+      to: 'none'
   condition:
     - condition: state
       entity_id: sun.sun
@@ -80,9 +83,12 @@
   initial_state: True
   hide_entity: False
   trigger:
-    platform: state
-    entity_id: sensor.kitchen_motion
-    to: 'motion'
+    - platform: state
+      entity_id: sensor.kitchen_motion
+      to: 'motion'
+    - platform: state
+      entity_id: sensor.kitchen_motion
+      to: 'none'
   condition:
     - condition: state
       entity_id: sun.sun
