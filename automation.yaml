@@ -67,9 +67,6 @@
     - platform: state
       entity_id: sensor.guest_motion
       to: 'motion'
-    - platform: state
-      entity_id: sensor.guest_motion
-      to: 'none'
   condition:
     - condition: state
       entity_id: sun.sun
@@ -85,16 +82,29 @@
     - platform: state
       entity_id: sensor.kitchen_motion
       to: 'motion'
-    - platform: state
-      entity_id: sensor.kitchen_motion
-      to: 'none'
   condition:
     - condition: state
       entity_id: sun.sun
       state: 'below_horizon'
   action:
-    service: homeassistant.turn_on
-    entity_id: script.timed_kitchen
+    service: light.turn_on
+    entity_id: light.kitchen_level_20_0
+
+- alias: Kitchen off after 4min when motion off
+  trigger:
+    - platform: state
+      entity_id: sensor.kitchen_motion
+      to: 'none'
+      for:
+        minutes: 4
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: light.turn_off
+    entity_id: light.kitchen_level_20_0
+
 
 - alias: Turn on master hallway when door opens
   initial_state: True
