@@ -168,6 +168,8 @@ scene:
         state: off
       switch.main_hallway_switch_16_0:
         state: off
+      light.living_room_level_15_0:
+        state: off
 
   - name: Dusk
     entities:
