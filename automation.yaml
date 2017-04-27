@@ -18,14 +18,14 @@
     after: '22:30:00'
   action:
     service: scene.turn_on
-    entity_id: switch.night_light
+    entity_id: scene.night_light
 
 - alias: Activate lights @dinner
   initial_state: True
   hide_entity: False
   trigger:
     platform: time
-    after: '17:50:00'
+    after: '17:30:00'
   action:
     service: scene.turn_on
     entity_id: scene.dusk
