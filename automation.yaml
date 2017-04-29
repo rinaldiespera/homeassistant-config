@@ -1,16 +1,37 @@
 ###############################
 #Simple morning/night triggers#
 ###############################
-- alias: Front porch on @sundown
+- alias: Front porch motion
   initial_state: True
   hide_entity: False
   trigger:
-    platform: sun
-    event: sunset
+    - platform: state
+      entity_id: binary_sensor.ring_front_door_motion
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
   action:
     service: homeassistant.turn_on
     entity_id: switch.porch
-- alias: Front porch off @22:30
+
+- alias: Front porch off after 10min when motion off
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ring_front_door_motion
+      to: 'off'
+      for:
+        minutes: 10
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.porch
+
+- alias: Set up bedtime lights @22:30
   initial_state: True
   hide_entity: False
   trigger:
@@ -20,7 +41,7 @@
     service: scene.turn_on
     entity_id: scene.night_light
 
-- alias: Activate lights @dinner
+- alias: Dinner time lights @17:30
   initial_state: True
   hide_entity: False
   trigger:
@@ -104,7 +125,6 @@
   action:
     service: light.turn_off
     entity_id: light.kitchen_level_20_0
-
 
 - alias: Turn on master hallway when door opens
   initial_state: True
