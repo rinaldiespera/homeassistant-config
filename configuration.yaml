@@ -142,12 +142,15 @@ scene:
   - name: Night Light
     entities:
       light.kitchen_level_20_0:
+        state: on
         brightness: 5
       switch.porch:
         state: off
       light.guest_hall_level_4_0:
+        state: on
         brightness: 5
       light.master_hall_level_8_0:
+        state: on
         brightness: 5
 
   - name: Dark
