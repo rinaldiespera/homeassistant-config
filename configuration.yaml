@@ -311,6 +311,13 @@ binary_sensor:
 
 alexa:
   intents:
+    ByeByeIntent:
+      action:
+        service: scene.turn_on
+        entity_id: scene.dark
+      speech:
+        type: plaintext
+        text: Bye Bye
     GoodMorningIntent:
       action:
         service: scene.turn_on
