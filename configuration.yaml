@@ -146,6 +146,8 @@ scene:
         brightness: 5
       switch.porch:
         state: off
+      light.powder_hall_level_7_0:
+        state: off
       light.guest_hall_level_4_0:
         state: on
         brightness: 5
@@ -315,14 +317,14 @@ alexa:
         entity_id: scene.dusk
       speech:
         type: plaintext
-        text: Yes sir
+        text: !include alexa_confirm.yaml
     GoodNightIntent:
       action:
         service: scene.turn_on
         entity_id: scene.dark
       speech:
         type: plaintext
-        text: Bite the bed bugs back
+        text: !include alexa_confirm.yaml
     MuteIntent:
       action:
         service: remote.send_command
