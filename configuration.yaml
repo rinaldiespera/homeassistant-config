@@ -152,8 +152,7 @@ scene:
         state: on
         brightness: 5
       light.master_hall_level_8_0:
-        state: on
-        brightness: 5
+        state: off
 
   - name: Dark
     entities:
