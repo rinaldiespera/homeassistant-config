@@ -162,12 +162,9 @@
     for:
       minutes: 4
   action:
-    service: notify.html5
-    data_template: 
-      message: "Fridge left open!"
+    service: notify.notify
     data:
-      data:
-        tag: 'notification-fridge' 
+      message: "Fridge left open!"
 
 - alias: Turn on garage lights when door is opened
   initial_state: True
