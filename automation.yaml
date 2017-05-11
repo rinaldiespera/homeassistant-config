@@ -157,7 +157,7 @@
   hide_entity: False
   trigger:
     platform: state
-    entity_id: sensor.refrigerator_door
+    entity_id: sensor.fridge_door
     to: 'open'
     for:
       minutes: 4

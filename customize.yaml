@@ -65,10 +65,10 @@ sensor.hallway_motion_alarm_level_21_1:
 sensor.hallway_motion_temperature_21_1:
   friendly_name: Kitchen Temperature
 
-sensor.refrigerator_alarm_level_22_1:
+sensor.fridge_door_alarm_level_22_1:
   friendly_name: Refrigerator alarm level
 
-sensor.refrigerator_alarm_type_22_0:
+sensor.fridge_door_alarm_type_22_0:
   friendly_name: Refrigerator alarm type
 
 

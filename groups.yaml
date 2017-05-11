@@ -48,7 +48,7 @@ Sensors:
     - sensor.patio_door
     - sensor.guest_motion
     - sensor.kitchen_motion
-    - sensor.refrigerator_door
+    - sensor.fridge_door
 
 Hallways:
   entities:
