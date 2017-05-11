@@ -157,14 +157,14 @@
   hide_entity: False
   trigger:
     platform: state
-    entity_id: sensor.refrigerator
+    entity_id: sensor.refrigerator_door
     to: 'open'
     for:
       minutes: 4
   action:
     service: notify.html5
     data_template: 
-      message: "Fridge left open! {{ states('sensor.refrigerator') }}."
+      message: "Fridge left open!"
     data:
       data:
         tag: 'notification-fridge' 
