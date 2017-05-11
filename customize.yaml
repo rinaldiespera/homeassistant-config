@@ -53,7 +53,7 @@ sensor.garage_house_door_alarm_type_18_0:
 sensor.patio_door_alarm_level_19_1:
   friendly_name: Patio door alarm level
 
-sensor.patio_door_alarm_type_18_0:
+sensor.patio_door_alarm_type_19_0:
   friendly_name: Patio door alarm type
 
 light.kitchen_level_20_0:
@@ -64,6 +64,12 @@ sensor.hallway_motion_alarm_level_21_1:
 
 sensor.hallway_motion_temperature_21_1:
   friendly_name: Kitchen Temperature
+
+sensor.refrigerator_alarm_level_22_1:
+  friendly_name: Refrigerator alarm level
+
+sensor.refrigerator_alarm_type_22_0:
+  friendly_name: Refrigerator alarm type
 
 
 #################

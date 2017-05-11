@@ -15,6 +15,11 @@ http:
   ssl_certificate: !secret ssl_cert_path
   ssl_key: !secret ssl_key_path
 
+notify:
+  platform: html5
+  gcm_api_key: !secret gcm_sender_key
+  gcm_sender_id: !secret gcm_sender_id
+
 config:
 
 # Checks for available updates
@@ -90,6 +95,10 @@ sensor:
         value_template: '{% if is_state("sensor.patio_door_alarm_level_19_1", "0") %}closed{% else %}open{% endif %}'
         friendly_name: 'Patio Door status'
         entity_id: sensor.patio_door_alarm_level_19_1
+      refrigerator_door:
+        value_template: '{% if is_state("sensor.refrigerator_alarm_level_22_1", "0") %}closed{% else %}open{% endif %}'
+        friendly_name: 'Refrigerator status'
+        entity_id: sensor.refrigerator_alarm_level_22_1
       guest_motion:
         value_template: '{% if is_state("sensor.hallway_motion_alarm_level_9_1", "0") %}none{% else %}motion{% endif %}'
         friendly_name: 'Guest Hallway Motion status'

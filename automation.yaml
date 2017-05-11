@@ -152,6 +152,23 @@
     service: homeassistant.turn_on
     entity_id: script.timed_patio 
 
+- alias: Notify if fridge open too long
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: state
+    entity_id: sensor.refrigerator
+    to: 'open'
+    for:
+      minutes: 4
+  action:
+    service: notify.html5
+    data_template: 
+      message: "Fridge left open! {{ states('sensor.refrigerator') }}."
+    data:
+      data:
+        tag: 'notification-fridge' 
+
 - alias: Turn on garage lights when door is opened
   initial_state: True
   hide_entity: False
