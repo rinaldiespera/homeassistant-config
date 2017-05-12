@@ -166,6 +166,20 @@
     data:
       message: "Fridge left open!"
 
+- alias: Notify if garage open too long
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: state
+    entity_id: sensor.garage_door
+    to: 'open'
+    for:
+      minutes: 5
+  action:
+    service: notify.notify
+    data:
+      message: "Garage door left open!"
+
 - alias: Turn on garage lights when door is opened
   initial_state: True
   hide_entity: False
