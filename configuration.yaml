@@ -207,6 +207,9 @@ scene:
       light.powder_hall_level_7_0:
         state: on
         brightness: 255
+      light.kitchen_level_20_0:
+        state: on
+        brightness: 255
 
 script:
   timed_guest_hallway:
