@@ -29,17 +29,17 @@ Info:
 Outside:
   entities:
     - switch.porch
-    - switch.patio_switch_13_0
+    - switch.patio_switch
 
 LivingAreas:
   entities:
-    - switch.dining_room_switch_14_0
-    - light.kitchen_level_20_0
-    - light.living_room_level_15_0    
+    - switch.dining_room_switch
+    - light.kitchen_level
+    - light.living_room_level
 
 Garage:
   entities:
-    - light.garage_level_5_0
+    - light.garage_level
 
 Sensors:
   entities:
@@ -52,25 +52,25 @@ Sensors:
 
 Hallways:
   entities:
-    - light.guest_hall_level_4_0
-    - light.powder_hall_level_7_0
-    - light.master_hall_level_8_0
-    - switch.main_hallway_switch_16_0
+    - light.guest_hall_level
+    - light.powder_hall_level
+    - light.master_hall_level
+    - switch.main_hallway_switch
 
 MasterBedroom:
   entities:
-    - light.mario_lamp_level_2_0
-    - light.caitlin_lamp_level_3_0
-    - switch.master_light_switch_12_0
+    - light.mario_lamp_level
+    - light.caitlin_lamp_level
+    - switch.master_light_switch
 
 #holiday:
 #  entities:
-#    - switch.outdoor_christmas_lights_switch_11_0
+#    - switch.outdoor_christmas_lights_switch
 
 Temperatures:
   entities:
     - climate.nest
-    - sensor.hallway_motion_temperature_9_1
+    - sensor.hallway_motion_temperature
     - binary_sensor.upstairs_thermostat_online
     - climate.upstairs
     - sensor.upstairs_thermostat_humidity

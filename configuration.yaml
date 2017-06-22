@@ -84,29 +84,29 @@ sensor:
   - platform: template
     sensors:
       garage_door:
-        value_template: '{% if is_state("sensor.garage_door_alarm_level_17_1", "0") %}closed{% else %}open{% endif %}'
-        entity_id: sensor.garage_door_alarm_level_17_1
+        value_template: '{% if is_state("sensor.garage_door_alarm_level", "0") %}closed{% else %}open{% endif %}'
+        entity_id: sensor.garage_door_alarm_level
         friendly_name: 'Garage Door status'
       garage_house_door:
-        value_template: '{% if is_state("sensor.garage_house_door_alarm_level_18_1", "0") %}closed{% else %}open{% endif %}'
+        value_template: '{% if is_state("sensor.garage_house_door_alarm_level", "0") %}closed{% else %}open{% endif %}'
         friendly_name: 'Garage/House Door status'
-        entity_id: sensor.garage_house_door_alarm_level_18_1
+        entity_id: sensor.garage_house_door_alarm_level
       patio_door:
-        value_template: '{% if is_state("sensor.patio_door_alarm_level_19_1", "0") %}closed{% else %}open{% endif %}'
+        value_template: '{% if is_state("sensor.patio_door_alarm_level", "0") %}closed{% else %}open{% endif %}'
         friendly_name: 'Patio Door status'
-        entity_id: sensor.patio_door_alarm_level_19_1
+        entity_id: sensor.patio_door_alarm_level
       fridge_door:
-        value_template: '{% if is_state("sensor.fridge_door_alarm_level_22_1", "0") %}closed{% else %}open{% endif %}'
+        value_template: '{% if is_state("sensor.fridge_door_alarm_level", "0") %}closed{% else %}open{% endif %}'
         friendly_name: 'Fridge status'
-        entity_id: sensor.fridge_door_alarm_level_22_1
+        entity_id: sensor.fridge_door_alarm_level
       guest_motion:
-        value_template: '{% if is_state("sensor.hallway_motion_alarm_level_9_1", "0") %}none{% else %}motion{% endif %}'
+        value_template: '{% if is_state("sensor.hallway_motion_alarm_level", "0") %}none{% else %}motion{% endif %}'
         friendly_name: 'Guest Hallway Motion status'
-        entity_id: sensor.hallway_motion_alarm_level_9_1
+        entity_id: sensor.hallway_motion_alarm_level
       kitchen_motion:
-        value_template: '{% if is_state("sensor.kitchen_motion_alarm_level_21_1", "0") %}none{% else %}motion{% endif %}'
+        value_template: '{% if is_state("sensor.kitchen_motion_alarm_level", "0") %}none{% else %}motion{% endif %}'
         friendly_name: 'Kitchen Motion status'
-        entity_id: sensor.kitchen_motion_alarm_level_21_1
+        entity_id: sensor.kitchen_motion_alarm_level
 
 #########
 #Harmony#
@@ -128,6 +128,7 @@ zwave:
   config_path: /home/homeassistant/.homeassistant/config
   autoheal: false
   device_config: !include zwave_device_config.yaml
+  new_entity_ids: true
 
 #for turning on echo support to zwave stuff
 emulated_hue:
@@ -140,74 +141,74 @@ emulated_hue:
 scene:
   - name: Watch TV Bedroom
     entities:
-      light.mario_lamp_level_2_0:
+      light.mario_lamp_level:
         state: on
         brightness: 30
-      light.caitlin_lamp_level_3_0:
+      light.caitlin_lamp_level:
         state: off
-      switch.master_light_switch_12_0:
+      switch.master_light_switch:
         state: off
 
   - name: Night Light
     entities:
-      light.kitchen_level_20_0:
+      light.kitchen_level:
         state: on
         brightness: 5
       switch.porch:
         state: off
-      light.powder_hall_level_7_0:
+      light.powder_hall_level:
         state: off
-      light.guest_hall_level_4_0:
+      light.guest_hall_level:
         state: on
         brightness: 5
-      light.master_hall_level_8_0:
+      light.master_hall_level:
         state: off
 
   - name: Dark
     entities:
-      light.mario_lamp_level_2_0:
+      light.mario_lamp_level:
         state: off
-      light.caitlin_lamp_level_3_0:
+      light.caitlin_lamp_level:
         state: off
-      switch.master_light_switch_12_0:
+      switch.master_light_switch:
         state: off
-      switch.porch_switch_13_0:
+      switch.porch_switch:
         state: off
-      switch.dining_room_switch_14_0:
+      switch.dining_room_switch:
         state: off
-      light.kitchen_level_20_0:
+      light.kitchen_level:
         state: off
-      light.guest_hall_level_4_0:
+      light.guest_hall_level:
         state: off
-      light.master_hall_level_8_0:
+      light.master_hall_level:
         state: off
-      light.powder_hall_level_7_0:
+      light.powder_hall_level:
         state: off
-      switch.main_hallway_switch_16_0:
+      switch.main_hallway_switch:
         state: off
-      light.living_room_level_15_0:
+      light.living_room_level:
         state: off
 
   - name: Dusk
     entities:
-      light.mario_lamp_level_2_0:
+      light.mario_lamp_level:
         state: on
         brightness: 255
-      light.caitlin_lamp_level_3_0:
+      light.caitlin_lamp_level:
         state: on
         brightness: 255
-      switch.dining_room_switch_14_0:
+      switch.dining_room_switch:
         state: on
-      light.guest_hall_level_4_0:
-        state: on
-        brightness: 255
-      light.master_hall_level_8_0:
+      light.guest_hall_level:
         state: on
         brightness: 255
-      light.powder_hall_level_7_0:
+      light.master_hall_level:
         state: on
         brightness: 255
-      light.kitchen_level_20_0:
+      light.powder_hall_level:
+        state: on
+        brightness: 255
+      light.kitchen_level:
         state: on
         brightness: 255
 
@@ -221,7 +222,7 @@ script:
            entity_id: script.timer_guest_hallway_off
       - service: homeassistant.turn_on
         data:
-          entity_id: light.guest_hall_level_4_0
+          entity_id: light.guest_hall_level
       # Set new timer
       - service: script.turn_on
         data:
@@ -234,7 +235,7 @@ script:
           minutes: 10
       - service: homeassistant.turn_off
         data:
-          entity_id: light.guest_hall_level_4_0
+          entity_id: light.guest_hall_level
 
   timed_master_hallway:
     alias: "Turn on master hallway and set timer"
@@ -245,7 +246,7 @@ script:
            entity_id: script.timer_master_hallway_off
       - service: homeassistant.turn_on
         data:
-          entity_id: light.master_hall_level_8_0
+          entity_id: light.master_hall_level
       # Set new timer
       - service: script.turn_on
         data:
@@ -258,7 +259,7 @@ script:
           minutes: 5
       - service: homeassistant.turn_off
         data:
-          entity_id: light.master_hall_level_8_0
+          entity_id: light.master_hall_level
 
   timed_garage:
     alias: "Turn on garage and set timer"
@@ -269,7 +270,7 @@ script:
            entity_id: script.timer_garage_off
       - service: homeassistant.turn_on
         data:
-          entity_id: light.garage_level_5_0
+          entity_id: light.garage_level
       # Set new timer
       - service: script.turn_on
         data:
@@ -282,7 +283,7 @@ script:
           minutes: 5
       - service: homeassistant.turn_off
         data:
-          entity_id: light.garage_level_5_0
+          entity_id: light.garage_level
 
   timed_patio:
     alias: "Turn on patio and set timer"
@@ -293,7 +294,7 @@ script:
            entity_id: script.timer_patio_off
       - service: homeassistant.turn_on
         data:
-          entity_id: switch.patio_switch_13_0
+          entity_id: switch.patio_switch
       # Set new timer
       - service: script.turn_on
         data:
@@ -306,7 +307,7 @@ script:
           minutes: 7
       - service: homeassistant.turn_off
         data:
-          entity_id: switch.patio_switch_13_0
+          entity_id: switch.patio_switch
 
 automation: !include automation.yaml
 

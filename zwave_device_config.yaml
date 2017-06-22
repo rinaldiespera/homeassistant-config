@@ -1,37 +1,37 @@
-light.mario_lamp_level_2_0:
+light.mario_lamp_level:
   refresh_value: true
   polling_intensity: 1
   ignored: false
-light.caitlin_lamp_level_3_0:
+light.caitlin_lamp_level:
   refresh_value: true
   polling_intensity: 1
   ignored: false
-light.guest_hall_level_4_0:
+light.guest_hall_level:
   refresh_value: true
   polling_intensity: 1
   ignored: false
-light.garage_level_5_0:
+light.garage_level:
   refresh_value: true
   polling_intensity: 1
   ignored: false
-light.powder_hall_level_7_0:
+light.powder_hall_level:
   refresh_value: true
   polling_intensity: 1
   ignored: false
-switch.outdoor_christmas_lights_switch_11_0:
+switch.outdoor_christmas_lights_switch:
   ignored: true
-light.kitchen_level_20_0:
+light.kitchen_level:
   ignored: false
   polling_intensity: 1
-switch.patio_switch_13_0:
+switch.patio_switch:
   ignored: false
   polling_intensity: 1
-light.living_room_level_15_0:
+light.living_room_level:
   ignored: false
   polling_intensity: 1
-switch.main_hallway_switch_16_0:
+switch.main_hallway_switch:
   ignored: false
   polling_intensity: 1
-switch.dining_room_switch_14_0:
+switch.dining_room_switch:
   ignored: false
   polling_intensity: 1
