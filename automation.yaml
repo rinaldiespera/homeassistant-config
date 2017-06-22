@@ -1,6 +1,102 @@
 ###############################
 #Simple morning/night triggers#
 ###############################
+- alias: Fridge Low battery
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.batt_fridge_door
+      below: 5
+  condition: 
+      condition: numeric_state
+      entity_id: sensor.batt_fridge_door
+      above: 0
+  action:
+      service: notify.notify
+      data:
+        message: "Time to change the fridge door battery"
+
+- alias: Garage/House Low battery
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.batt_garage_house_door
+      below: 5
+  condition:
+      condition: numeric_state
+      entity_id: sensor.batt_garage_house_door
+      above: 0
+  action:
+      service: notify.notify
+      data:
+        message: "Time to change the garage/house door battery"
+
+- alias: Garage Low battery
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.batt_garage_door
+      below: 5
+  condition:
+      condition: numeric_state
+      entity_id: sensor.batt_garage_door
+      above: 0
+  action:
+      service: notify.notify
+      data:
+        message: "Time to change the garage door battery"
+
+- alias: Patio door Low battery
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.batt_patio_door
+      below: 5
+  condition:
+      condition: numeric_state
+      entity_id: sensor.batt_patio_door
+      above: 0
+  action:
+      service: notify.notify
+      data:
+        message: "Time to change the patio door battery"
+
+- alias: Hallway motion Low battery
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.batt_guest_motion
+      below: 5
+  condition:
+      condition: numeric_state
+      entity_id: sensor.batt_guest_motion
+      above: 0
+  action:
+      service: notify.notify
+      data:
+        message: "Time to change the hallway motion sensor battery"
+
+- alias: Kitchen motion Low battery
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.batt_kitchen_motion
+      below: 5
+  condition:
+      condition: numeric_state
+      entity_id: sensor.batt_kitchen_motion
+      above: 0
+  action:
+      service: notify.notify
+      data:
+        message: "Time to change the kitchen motion battery"
+
 - alias: Front porch motion
   initial_state: True
   hide_entity: False

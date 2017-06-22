@@ -83,6 +83,54 @@ sensor:
       - heat_index_string
   - platform: template
     sensors:
+      batt_fridge_door:
+        friendly_name: 'Fridge Door battery'
+        value_template: '{% if states.zwave.fridge_door %}
+                           {{ states.zwave.fridge_door.attributes.battery_level }}
+                         {% else %}
+                           0
+                         {% endif %}'
+        unit_of_measurement: '%'
+      batt_garage_house_door:
+        friendly_name: 'Garage/House Door battery'
+        value_template: '{% if states.zwave.garage_house_door %}
+                           {{ states.zwave.garage_house_door.attributes.battery_level }}
+                         {% else %}
+                           0
+                         {% endif %}'
+        unit_of_measurement: '%'
+      batt_garage_door:
+        friendly_name: 'Garage door battery'
+        value_template: '{% if states.zwave.garage_door %}
+                           {{ states.zwave.garage_door.attributes.battery_level }}
+                         {% else %}
+                           0
+                         {% endif %}'
+        unit_of_measurement: '%'
+      batt_patio_door:
+        friendly_name: 'Patio Door battery'
+        value_template: '{% if states.zwave.patio_door %}
+                           {{ states.zwave.patio_door.attributes.battery_level }}
+                         {% else %}
+                           0
+                         {% endif %}'
+        unit_of_measurement: '%'
+      batt_guest_motion:
+        friendly_name: 'Hallway motion battery'
+        value_template: '{% if states.zwave.hallway_motion %}
+                           {{ states.zwave.hallway_motion.attributes.battery_level }}
+                         {% else %}
+                           0
+                         {% endif %}'
+        unit_of_measurement: '%'
+      batt_kitchen_motion:
+        friendly_name: 'Kitchen motion battery'
+        value_template: '{% if states.zwave.kitchen_motion %}
+                           {{ states.zwave.kitchen_motion.attributes.battery_level }}
+                         {% else %}
+                           0
+                         {% endif %}'
+        unit_of_measurement: '%'
       garage_door:
         value_template: '{% if is_state("sensor.garage_door_alarm_level", "0") %}closed{% else %}open{% endif %}'
         entity_id: sensor.garage_door_alarm_level
