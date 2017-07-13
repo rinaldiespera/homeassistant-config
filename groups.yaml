@@ -11,6 +11,12 @@ default_view:
     - group.livingareas
 #    - group.holiday
 
+Cameras:
+  view: yes
+  icon: mdi:camera
+  entities:
+    - camera.foscam_camera
+
 Info:
   view: yes
   icon: mdi:settings

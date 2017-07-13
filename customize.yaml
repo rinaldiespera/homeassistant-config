@@ -115,3 +115,6 @@ sensor.pws_wind_string:
 
 sensor.pws_heat_index_string:
   friendly_name: Heat Index
+
+camera.foscam_camera:
+  friendly_name: Living Room camera

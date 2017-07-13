@@ -428,3 +428,8 @@ alexa:
         text: Darn straight
 
 
+camera:
+  - platform: foscam
+    ip: !secret foscam_ip
+    username: !secret foscam_username
+    password: !secret foscam_password
