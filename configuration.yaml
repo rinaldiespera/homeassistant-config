@@ -433,3 +433,15 @@ camera:
     ip: !secret foscam_ip
     username: !secret foscam_username
     password: !secret foscam_password
+
+tts:
+  - platform: google
+    cache: true
+    cache_dir: /tmp/tts
+    time_memory: 300
+
+media_player:
+  - platform: tts_bluetooth_speaker
+    address: !secret echo_bluetooth_address
+    volume: 0.8
+    cache_dir: /tmp/tts

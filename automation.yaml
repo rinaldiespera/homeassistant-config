@@ -1,6 +1,26 @@
 ###############################
 #Simple morning/night triggers#
 ###############################
+- alias: Home Assistant Start
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    - service: tts.google_say
+      data:
+        entity_id: media_player.tts_bluetooth_speaker
+        message: 'Home Assistant has started'
+
+- alias: Zwave ready
+  trigger:
+    platform: event
+    event_type: zwave.network_ready
+  action:
+    - service: tts.google_say
+      data:
+        entity_id: media_player.tts_bluetooth_speaker
+        message: 'zwave network is ready'
+
 - alias: Fridge Low battery
   initial_state: True
   hide_entity: False
