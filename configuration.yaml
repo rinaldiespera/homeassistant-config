@@ -10,6 +10,12 @@ homeassistant:
 # Enables the frontend
 frontend:
 
+device_tracker:
+  - platform: netgear
+    host: !secret router_ip
+    username: !secret router_username
+    password: !secret router_password
+
 http:
   api_password: !secret api_password
   ssl_certificate: !secret ssl_cert_path
