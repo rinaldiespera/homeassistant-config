@@ -154,8 +154,9 @@
     platform: time
     at: '22:30:00'
   action:
-    service: scene.turn_on
-    entity_id: scene.night_light
+    - service: scene.turn_on
+      entity_id: scene.night_light
+    - service: shell_command.foscam_location_jackie
 
 - alias: Dinner time lights @17:30
   initial_state: True

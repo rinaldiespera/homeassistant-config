@@ -440,6 +440,11 @@ camera:
     username: !secret foscam_username
     password: !secret foscam_password
 
+shell_command:
+  foscam_location_jackie: '~/.homeassistant/scripts/set_foscam_location.sh jackie'
+  foscam_location_couch: '~/.homeassistant/scripts/set_foscam_location.sh couch'
+  foscam_location_dining: '~/.homeassistant/scripts/set_foscam_location.sh dining'
+
 tts:
   - platform: google
     cache: true
