@@ -175,8 +175,9 @@
     - platform: time
       at: '09:00:00'
   action:
-    service: scene.turn_on
-    entity_id: scene.dark
+    - service: scene.turn_on
+      entity_id: scene.dark
+    - service: shell_command.foscam_location_dining
 
 #- alias: Turn on christmas lights at sunset
 #  initial_state: True
