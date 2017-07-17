@@ -2,6 +2,7 @@
 #Simple morning/night triggers#
 ###############################
 - alias: Home Assistant Start
+  initial_state: False
   trigger:
     platform: homeassistant
     event: start
@@ -12,6 +13,7 @@
         message: 'Home Assistant has started'
 
 - alias: Zwave ready
+  initial_state: False
   trigger:
     platform: event
     event_type: zwave.network_ready
@@ -20,6 +22,21 @@
       data:
         entity_id: media_player.tts_bluetooth_speaker
         message: 'zwave network is ready'
+
+- alias: jackie alert
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.mqtt_binary_sensor
+      to: 'on'
+  action:
+    - service: notify.html5_mario_moto_z_play
+      data:
+        title: "Motion detected"
+        message: "Jackie may have entered pee zone"
+    - service: mqtt.publish
+      data:
+        topic: "home-assistant/camera/motion"
+        payload: "OFF"
 
 - alias: Fridge Low battery
   initial_state: True

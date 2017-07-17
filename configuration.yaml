@@ -374,6 +374,8 @@ binary_sensor:
     monitored_conditions:
       - ding
       - motion
+  - platform: mqtt
+    state_topic: "home-assistant/camera/motion"
 
 alexa:
   intents:
@@ -456,3 +458,12 @@ media_player:
     address: !secret echo_bluetooth_address
     volume: 0.8
     cache_dir: /tmp/tts
+
+mqtt:
+  broker: !secret mqtt_server
+  port: !secret mqtt_port
+  client_id: home-assistant
+  keepalive: 60
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  protocol: 3.1
