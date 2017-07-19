@@ -31,6 +31,8 @@ Info:
     - media_player.bedroom
     - remote.living_room
     - climate.nest
+    - group.household
+    - group.devices
 
 Outside:
   entities:
@@ -38,6 +40,7 @@ Outside:
     - switch.patio_switch
 
 LivingAreas:
+  name: Living Areas
   entities:
     - switch.dining_room_switch
     - light.kitchen_level
@@ -64,6 +67,7 @@ Hallways:
     - switch.main_hallway_switch
 
 MasterBedroom:
+  name: Master Bedroom
   entities:
     - light.mario_lamp_level
     - light.caitlin_lamp_level
@@ -87,3 +91,71 @@ Temperatures:
     - sensor.pws_relative_humidity
     - sensor.pws_heat_index_string
     - sun.sun
+
+household:
+  name: Household
+  entities:
+  - group.mario
+  - group.caitlin
+  - group.carol
+  - group.marc
+  - group.bobby
+  - group.jen
+
+devices:
+  name: WiFi devices
+  entities:
+  - device_tracker.96b6e9662ece
+  - device_tracker.bedroom_roku
+  - device_tracker.nest
+  - device_tracker.kamek
+  - device_tracker.e8abfa9fe1cb
+  - device_tracker.harmonyhub
+  - device_tracker.tablo
+  - device_tracker.dellprinter
+  - device_tracker.echo
+  - device_tracker.echo_dot
+  - device_tracker.antscam0000tnpusac397171ltl
+  - device_tracker.wemo_light_switch
+  - device_tracker.dlink_router
+  - device_tracker.nexus_player
+  - device_tracker.redcape
+  - device_tracker.dash
+  - group.caitlin_pc
+
+caitlin_pc:
+  name: Caitlin's computer
+  entities:
+  - device_tracker.caitlinpc
+  - device_tracker.caitlinpc_2
+
+carol:
+  name: Carol Elmore
+  entities:
+  - device_tracker.carolsipad
+  - device_tracker.celmoresphone
+
+mario:
+  name: Mario Limonciello
+  entities:
+  - device_tracker.mario_android  
+
+caitlin:
+  name: Caitlin Limonciello
+  entities:
+  - device_tracker.caitlin_android
+
+marc:
+  name: Marc Elmore
+  entities:
+  - device_tracker.marcelmesiphone
+
+bobby:
+  name: Robert Elmore
+  entities:
+  - device_tracker.bobbysiphone
+
+jen:
+  name: Jen carnes
+  entities:
+  - device_tracker.jencarnes
