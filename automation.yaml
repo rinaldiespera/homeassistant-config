@@ -185,12 +185,17 @@
     service: scene.turn_on
     entity_id: scene.dusk
 
-- alias: Lights off @9a
+- alias: Lights off when no one home
   initial_state: True
   hide_entity: False
   trigger:
-    - platform: time
-      at: '09:00:00'
+    - platform: state
+      entity_id: group.household
+      to: 'not home'
+  condition:
+    - condition: state
+      entity_id: input_boolean.override_home
+      state: 'off'
   action:
     - service: scene.turn_on
       entity_id: scene.dark

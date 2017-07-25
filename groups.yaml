@@ -9,6 +9,7 @@ default_view:
     - group.garage
     - group.outside
     - group.livingareas
+    - group.overrides
 #    - group.holiday
 
 Cameras:
@@ -102,6 +103,10 @@ household:
   - group.bobby
   - group.jen
 
+overrides:
+  entities:
+  - input_boolean.override_home
+
 devices:
   name: WiFi devices
   entities:
@@ -131,31 +136,37 @@ caitlin_pc:
 
 carol:
   name: Carol Elmore
+  icon: mdi:account
   entities:
   - device_tracker.carolsipad
   - device_tracker.celmoresphone
 
 mario:
   name: Mario Limonciello
+  icon: mdi:account
   entities:
   - device_tracker.mario_android  
 
 caitlin:
   name: Caitlin Limonciello
+  icon: mdi:account
   entities:
   - device_tracker.caitlin_android
 
 marc:
   name: Marc Elmore
+  icon: mdi:account
   entities:
   - device_tracker.marcelmesiphone
 
 bobby:
   name: Robert Elmore
+  icon: mdi:account
   entities:
   - device_tracker.bobbysiphone
 
 jen:
   name: Jen carnes
+  icon: mdi:account
   entities:
   - device_tracker.jencarnes
