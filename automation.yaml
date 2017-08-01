@@ -23,7 +23,7 @@
         entity_id: media_player.tts_bluetooth_speaker
         message: 'zwave network is ready'
 
-- alias: jackie alert
+- alias: james alert
   trigger:
     - platform: state
       entity_id: binary_sensor.mqtt_binary_sensor
@@ -32,7 +32,7 @@
     - service: notify.html5_mario_moto_z_play
       data:
         title: "Motion detected"
-        message: "Jackie may have entered pee zone"
+        message: "James is moving"
     - service: mqtt.publish
       data:
         topic: "home-assistant/camera/motion"
@@ -173,14 +173,25 @@
   action:
     - service: scene.turn_on
       entity_id: scene.night_light
-    - service: shell_command.foscam_location_jackie
 
-- alias: Dinner time lights @17:30
+#    - service: shell_command.foscam_location_jackie
+
+- alias: Turn on dinner time lights
   initial_state: True
   hide_entity: False
   trigger:
-    platform: time
-    at: '17:30:00'
+    - platform: time
+      at: '17:30:00'
+    - platform: state
+      entity_id: group.household
+      to: 'home'
+  condition:
+    - condition: state
+      entity_id: group.household
+      state: 'home'
+    - condition: time
+      after: '17:30:00'
+      before: '20:00:00'
   action:
     service: scene.turn_on
     entity_id: scene.dusk
@@ -191,7 +202,7 @@
   trigger:
     - platform: state
       entity_id: group.household
-      to: 'not home'
+      to: 'not_home'
   condition:
     - condition: state
       entity_id: input_boolean.override_home
@@ -199,7 +210,8 @@
   action:
     - service: scene.turn_on
       entity_id: scene.dark
-    - service: shell_command.foscam_location_dining
+#    - service: shell_command.foscam_location_dining
+
 
 #- alias: Turn on christmas lights at sunset
 #  initial_state: True
