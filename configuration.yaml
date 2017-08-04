@@ -191,8 +191,24 @@ emulated_hue:
   exposed_domains:
     - light
     - switch
+    - fan
+    - scene
 
 scene:
+  - name: Sexy time
+    entities:
+      switch.master_light_switch:
+        state: off
+      light.mario_lamp_level:
+        state: on
+        brightness: 20
+      light.caitlin_lamp_level:
+        state: on
+        brightness: 20
+      fan.master_fan_level:
+        state: on
+        speed: medium
+
   - name: Watch TV Bedroom
     entities:
       light.mario_lamp_level:

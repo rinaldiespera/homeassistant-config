@@ -24,6 +24,8 @@ light.caitlin_lamp_level:
   friendly_name: Caitlin's lamp
 switch.master_light_switch:
   friendly_name: Master light
+fan.master_fan_level:
+  friendly_name: Master fan
 light.living_room_level:
   friendly_name: Living Room
 switch.main_hallway_switch:
@@ -118,3 +120,22 @@ sensor.pws_heat_index_string:
 
 camera.foscam_camera:
   friendly_name: Living Room camera
+
+##########
+##scenes##
+##########
+
+scene.sexy_time:
+  emulated_hue: true
+
+scene.dark:
+  emulated_hue: false
+
+scene.dusk:
+  emulated_hue: false
+
+scene.night_light:
+  emulated_hue: true
+
+scene.watch_tv_bedroom:
+  emulated_hue: false

@@ -70,9 +70,10 @@ Hallways:
 MasterBedroom:
   name: Master Bedroom
   entities:
+    - switch.master_light_switch
+    - fan.master_fan_level
     - light.mario_lamp_level
     - light.caitlin_lamp_level
-    - switch.master_light_switch
 
 #holiday:
 #  entities:
