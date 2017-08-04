@@ -207,7 +207,7 @@ scene:
         brightness: 20
       fan.master_fan_level:
         state: on
-        speed: medium
+        speed: high
 
   - name: Watch TV Bedroom
     entities:
