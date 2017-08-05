@@ -394,62 +394,65 @@ binary_sensor:
     state_topic: "home-assistant/camera/motion"
 
 alexa:
-  intents:
-    ByeByeIntent:
-      action:
-        service: scene.turn_on
-        entity_id: scene.dark
-      speech:
-        type: plaintext
-        text: Bye Bye
-    GoodMorningIntent:
-      action:
-        service: scene.turn_on
-        entity_id: scene.dusk
-      speech:
-        type: plaintext
-        text: !include alexa_confirm.yaml
-    GoodNightIntent:
-      action:
-        service: scene.turn_on
-        entity_id: scene.dark
-      speech:
-        type: plaintext
-        text: !include alexa_confirm.yaml
-    MuteIntent:
-      action:
-        service: remote.send_command
-        data_template:
-          command: Mute
-          #yamaha receiver
-          device: 29753204
-          entity_id: remote.living_room
-      speech:
-        type: plaintext
-        text: As you insist
-    PlayIntent:
-      action:
-        service: remote.send_command
-        data_template:
-          command: Play
-          #nexus player
-          device: 37662777
-          entity_id: remote.living_room
-      speech:
-        type: plaintext
-        text: giggety
 
-    PauseIntent:
-      action:
-        service: remote.send_command
-        data_template:
-          command: Pause
-          #nexus player
-          device: 37662777
-          entity_id: remote.living_room
-      speech:
-        type: plaintext
-        text: Darn straight
+intent_script:
+  ByeByeIntent:
+    action:
+      service: scene.turn_on
+      entity_id: scene.dark
+    speech:
+      type: plaintext
+      text: Bye Bye
+  GoodMorningIntent:
+    action:
+      service: scene.turn_on
+      entity_id: scene.dusk
+    speech:
+      type: plaintext
+      text: !include alexa_confirm.yaml
+    async_action: true
+  GoodNightIntent:
+    action:
+      service: scene.turn_on
+      entity_id: scene.dark
+    speech:
+      type: plaintext
+      text: !include alexa_confirm.yaml
+    async_action: true
+  MuteIntent:
+    action:
+      service: remote.send_command
+      data_template:
+        command: Mute
+        #yamaha receiver
+        device: 29753204
+        entity_id: remote.living_room
+    speech:
+      type: plaintext
+      text: As you insist
+  PlayIntent:
+    action:
+      service: remote.send_command
+      data_template:
+        command: Play
+        #nexus player
+        device: 37662777
+        entity_id: remote.living_room
+    speech:
+      type: plaintext
+      text: giggety
+
+  PauseIntent:
+    action:
+      service: remote.send_command
+      data_template:
+        command: Pause
+        #nexus player
+        device: 37662777
+        entity_id: remote.living_room
+    speech:
+      type: plaintext
+      text: Darn straight
 
 
 camera:
