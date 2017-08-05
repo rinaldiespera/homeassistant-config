@@ -401,24 +401,22 @@ intent_script:
       service: scene.turn_on
       entity_id: scene.dark
     speech:
-      type: plaintext
+      type: plain
       text: Bye Bye
   GoodMorningIntent:
     action:
       service: scene.turn_on
       entity_id: scene.dusk
     speech:
-      type: plaintext
+      type: plain
       text: !include alexa_confirm.yaml
-    async_action: true
   GoodNightIntent:
     action:
       service: scene.turn_on
       entity_id: scene.dark
     speech:
-      type: plaintext
+      type: plain
       text: !include alexa_confirm.yaml
-    async_action: true
   MuteIntent:
     action:
       service: remote.send_command
@@ -428,7 +426,7 @@ intent_script:
         device: 29753204
         entity_id: remote.living_room
     speech:
-      type: plaintext
+      type: plain
       text: As you insist
   PlayIntent:
     action:
@@ -439,7 +437,7 @@ intent_script:
         device: 37662777
         entity_id: remote.living_room
     speech:
-      type: plaintext
+      type: plain
       text: giggety
 
   PauseIntent:
@@ -451,7 +449,7 @@ intent_script:
         device: 37662777
         entity_id: remote.living_room
     speech:
-      type: plaintext
+      type: plain
       text: Darn straight
 
 
