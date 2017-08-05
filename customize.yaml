@@ -119,7 +119,7 @@ sensor.pws_heat_index_string:
   friendly_name: Heat Index
 
 camera.foscam_camera:
-  friendly_name: Living Room camera
+  friendly_name: James room camera
 
 ##########
 ##scenes##
