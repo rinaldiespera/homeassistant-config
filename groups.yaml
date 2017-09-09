@@ -30,6 +30,7 @@ Info:
     - group.sensors
     - media_player.living_room
     - media_player.bedroom
+    - media_player.shield
     - remote.living_room
     - climate.nest
     - group.household
