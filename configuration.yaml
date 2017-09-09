@@ -209,6 +209,24 @@ scene:
         state: on
         speed: high
 
+  - name: Watch TV Living room
+    entities:
+      switch.dining_room_switch:
+        state: off
+      light.kitchen_level:
+        state: on
+        brightness: 10
+      light.guest_hall_level:
+        state: off
+      light.master_hall_level:
+        state: off
+      light.powder_hall_level:
+        state: off
+      switch.main_hallway_switch:
+        state: off
+      light.living_room_level:
+        state: off
+
   - name: Watch TV Bedroom
     entities:
       light.mario_lamp_level:
@@ -229,8 +247,7 @@ scene:
       light.powder_hall_level:
         state: off
       light.guest_hall_level:
-        state: on
-        brightness: 5
+        state: off
       light.master_hall_level:
         state: off
 
@@ -261,12 +278,6 @@ scene:
 
   - name: Dusk
     entities:
-      light.mario_lamp_level:
-        state: on
-        brightness: 255
-      light.caitlin_lamp_level:
-        state: on
-        brightness: 255
       switch.dining_room_switch:
         state: on
       light.guest_hall_level:
