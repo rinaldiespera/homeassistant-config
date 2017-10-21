@@ -16,7 +16,8 @@ Cameras:
   view: yes
   icon: mdi:camera
   entities:
-    - camera.foscam_camera
+    - camera.james_camera
+    - camera.javier_camera
 
 Info:
   view: yes
@@ -68,13 +69,14 @@ Hallways:
     - light.master_hall_level
     - switch.main_hallway_switch
 
-MasterBedroom:
-  name: Master Bedroom
+Bedrooms:
+  name: Bedrooms
   entities:
     - switch.master_light_switch
     - fan.master_fan_level
     - light.mario_lamp_level
     - light.caitlin_lamp_level
+    - switch.james_switch
 
 #holiday:
 #  entities:
