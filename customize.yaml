@@ -31,6 +31,9 @@ light.living_room_level:
 switch.main_hallway_switch:
   friendly_name: Main Hallway
 
+switch.james_switch:
+  friendly_name: James Room
+
 sensor.hallway_motion_alarm_level:
   friendly_name: Guest Hallway Motion Level
 

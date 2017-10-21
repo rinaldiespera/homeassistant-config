@@ -275,6 +275,8 @@ scene:
         state: off
       light.living_room_level:
         state: off
+      switch.james_switch:
+        state: off
 
   - name: Dusk
     entities:
@@ -466,9 +468,15 @@ intent_script:
 
 camera:
   - platform: foscam
-    ip: !secret foscam_ip
-    username: !secret foscam_username
-    password: !secret foscam_password
+    ip: !secret james_foscam_ip
+    username: !secret james_foscam_username
+    password: !secret james_foscam_password
+    name: james_camera
+  - platform: foscam
+    ip: !secret javier_foscam_ip
+    username: !secret javier_foscam_username
+    password: !secret javier_foscam_password
+    name: javier_camera
 
 shell_command:
   foscam_location_jackie: '~/.homeassistant/scripts/set_foscam_location.sh jackie'
