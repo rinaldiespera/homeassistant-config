@@ -358,9 +358,13 @@
       entity_id: media_player.bedroom
       to: 'idle'
   condition:
-    - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+      - condition: time
+        before: '08:00:00'
   action:
     service: scene.turn_on
     entity_id: scene.dark
