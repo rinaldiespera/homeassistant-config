@@ -518,3 +518,6 @@ google_assistant:
     - switch
     - light
 
+duckdns:
+  domain: !secret duckdns_domain
+  access_token: !secret duckdns_token
