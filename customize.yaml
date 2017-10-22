@@ -129,16 +129,16 @@ camera.foscam_camera:
 ##########
 
 scene.sexy_time:
-  emulated_hue: true
+  emulated_hue_hidden: false
 
 scene.dark:
-  emulated_hue: false
+  emulated_hue_hidden: true
 
 scene.dusk:
-  emulated_hue: false
+  emulated_hue_hidden: true
 
 scene.night_light:
-  emulated_hue: true
+  emulated_hue_hidden: false
 
 scene.watch_tv_bedroom:
-  emulated_hue: false
+  emulated_hue_hidden: true
