@@ -260,8 +260,11 @@
       entity_id: sun.sun
       state: 'below_horizon'
   action:
-    service: light.turn_on
-    entity_id: light.kitchen_level
+    - service: light.turn_on
+      entity_id: light.kitchen_level
+    - service: notify.notify
+      data:
+        message: "Motion seen in kitchen @ {{ now().strftime('%a %-I:%M %p') }}"
 
 - alias: Kitchen off after 4min when motion off
   trigger:
