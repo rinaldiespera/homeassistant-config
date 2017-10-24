@@ -4,7 +4,7 @@ default_view:
   icon: mdi:home
   entities:
     - group.temperatures
-    - group.masterbedroom
+    - group.bedrooms
     - group.hallways
     - group.garage
     - group.outside
@@ -55,6 +55,7 @@ Garage:
 
 Sensors:
   entities:
+    - sensor.office_door
     - sensor.garage_door
     - sensor.garage_house_door
     - sensor.patio_door

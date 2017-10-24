@@ -138,6 +138,10 @@ sensor:
                            0
                          {% endif %}'
         unit_of_measurement: '%'
+      office_door:
+        value_template: '{% if is_state("binary_sensor.office_door_sensor", "off") %}closed{% else %}open{% endif %}'
+        entity_id: binary_sensor.office_door_sensor
+        friendly_name: 'Office Door status'
       garage_door:
         value_template: '{% if is_state("sensor.garage_door_alarm_level", "0") %}closed{% else %}open{% endif %}'
         entity_id: sensor.garage_door_alarm_level
