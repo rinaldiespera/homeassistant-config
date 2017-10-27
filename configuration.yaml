@@ -282,6 +282,8 @@ scene:
         state: off
       switch.james_switch:
         state: off
+      switch.office_switch:
+        state: off
 
   - name: Dusk
     entities:

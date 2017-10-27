@@ -191,7 +191,7 @@
       state: 'home'
     - condition: time
       after: '17:30:00'
-      before: '20:00:00'
+      before: '21:00:00'
   action:
     service: scene.turn_on
     entity_id: scene.dusk
@@ -306,6 +306,21 @@
   action:
     service: homeassistant.turn_on
     entity_id: script.timed_patio 
+
+- alias: Turn on office when door opens
+  initial_state: True
+  hide_entity: False
+  trigger:
+    platform: state
+    entity_id: sensor.office_door
+    to: 'open'
+  condition:
+    - condition: time
+      after: '07:00:00'
+      before: '23:00:00'
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.office_switch
 
 - alias: Notify if fridge open too long
   initial_state: True
