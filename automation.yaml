@@ -322,6 +322,21 @@
     service: homeassistant.turn_on
     entity_id: switch.office_switch
 
+- alias: Office light off after 10min when door closed
+  trigger:
+    - platform: state
+      entity_id: sensor.office_door
+      to: 'closed'
+      for:
+        minutes: 10
+  condition:
+    - condition: time
+      after: '07:00:00'
+      before: '23:00:00'
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.office_switch
+
 - alias: Notify if fridge open too long
   initial_state: True
   hide_entity: False
