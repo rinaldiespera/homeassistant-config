@@ -48,6 +48,7 @@ LivingAreas:
     - switch.dining_room_switch
     - light.kitchen_level
     - light.living_room_level
+    - switch.office_switch
 
 Garage:
   entities:
