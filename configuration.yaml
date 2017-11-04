@@ -231,6 +231,8 @@ scene:
         state: off
       light.living_room_level:
         state: off
+      switch.living_room_outlet_switch:
+        state: off
 
   - name: Watch TV Bedroom
     entities:
@@ -255,6 +257,23 @@ scene:
         state: off
       light.master_hall_level:
         state: off
+
+  - name: Morning
+    entities:
+      light.mario_lamp_level:
+        state: on
+        brightness: 20
+      light.caitlin_lamp_level:
+        state: on
+        brightness: 100
+      light.kitchen_level:
+        state: on
+        brightness: 100
+      switch.main_hallway_switch:
+        state: on
+      light.guest_hall_level:
+        state: on
+        brightness: 100
 
   - name: Dark
     entities:
@@ -283,6 +302,8 @@ scene:
       switch.james_switch:
         state: off
       switch.office_switch:
+        state: off
+      switch.living_room_outlet_switch:
         state: off
 
   - name: Dusk

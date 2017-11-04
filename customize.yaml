@@ -82,10 +82,12 @@ sensor.pws_heat_index_string:
   friendly_name: Heat Index
 camera.foscam_camera:
   friendly_name: James room camera
+scene.morning:
+  emulated_hue_hidden: false
 scene.sexy_time:
   emulated_hue_hidden: false
 scene.dark:
-  emulated_hue_hidden: true
+  emulated_hue_hidden: false
 scene.dusk:
   emulated_hue_hidden: true
 scene.night_light:
@@ -94,3 +96,5 @@ scene.watch_tv_bedroom:
   emulated_hue_hidden: true
 switch.office_switch:
   friendly_name: Office
+switch.living_room_outlet_switch:
+  friendly_name: Living room outlet
