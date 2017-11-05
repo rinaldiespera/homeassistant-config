@@ -18,6 +18,7 @@ Cameras:
   entities:
     - camera.james_camera
     - camera.javier_camera
+    - camera.front_door
 
 Info:
   view: yes

@@ -420,7 +420,7 @@ script:
         data:
           entity_id: switch.patio_switch
 
-automation: !include automation.yaml
+automation: !include automations.yaml
 
 ring:
   username: !secret ring_username
@@ -505,6 +505,7 @@ camera:
     username: !secret javier_foscam_username
     password: !secret javier_foscam_password
     name: javier_camera
+  - platform: ring
 
 shell_command:
   foscam_location_jackie: '~/.homeassistant/scripts/set_foscam_location.sh jackie'

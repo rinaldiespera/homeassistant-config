@@ -1,7 +1,5 @@
-###############################
-#Simple morning/night triggers#
-###############################
-- alias: Home Assistant Start
+- id: home_assistant_start
+  alias: Home Assistant Start
   initial_state: False
   trigger:
     platform: homeassistant
@@ -12,7 +10,8 @@
         entity_id: media_player.tts_bluetooth_speaker
         message: 'Home Assistant has started'
 
-- alias: Zwave ready
+- id: zwave_ready
+  alias: Zwave ready
   initial_state: False
   trigger:
     platform: event
@@ -23,7 +22,8 @@
         entity_id: media_player.tts_bluetooth_speaker
         message: 'zwave network is ready'
 
-- alias: james alert
+- id: james_alert
+  alias: james alert
   trigger:
     - platform: state
       entity_id: binary_sensor.mqtt_binary_sensor
@@ -38,7 +38,8 @@
         topic: "home-assistant/camera/motion"
         payload: "OFF"
 
-- alias: Fridge Low battery
+- id: fridge_low_battery
+  alias: Fridge Low battery
   initial_state: True
   hide_entity: False
   trigger:
@@ -54,7 +55,8 @@
       data:
         message: "Time to change the fridge door battery"
 
-- alias: Garage/House Low battery
+- id: garage_house_low_battery
+  alias: Garage/House Low battery
   initial_state: True
   hide_entity: False
   trigger:
@@ -70,7 +72,8 @@
       data:
         message: "Time to change the garage/house door battery"
 
-- alias: Garage Low battery
+- id: garage_low_battery
+  alias: Garage Low battery
   initial_state: True
   hide_entity: False
   trigger:
@@ -86,7 +89,8 @@
       data:
         message: "Time to change the garage door battery"
 
-- alias: Patio door Low battery
+- id: patio_door_low_battery
+  alias: Patio door Low battery
   initial_state: True
   hide_entity: False
   trigger:
@@ -102,7 +106,8 @@
       data:
         message: "Time to change the patio door battery"
 
-- alias: Hallway motion Low battery
+- id: hallway_motion_low_battery
+  alias: Hallway motion Low battery
   initial_state: True
   hide_entity: False
   trigger:
@@ -118,7 +123,8 @@
       data:
         message: "Time to change the hallway motion sensor battery"
 
-- alias: Kitchen motion Low battery
+- id: kitchen_motion_low_battery
+  alias: Kitchen motion Low battery
   initial_state: True
   hide_entity: False
   trigger:
@@ -134,7 +140,8 @@
       data:
         message: "Time to change the kitchen motion battery"
 
-- alias: Front porch motion
+- id: front_porch_motion
+  alias: Front porch motion
   initial_state: True
   hide_entity: False
   trigger:
@@ -149,7 +156,8 @@
     service: homeassistant.turn_on
     entity_id: switch.porch
 
-- alias: Front porch off after 10min when motion off
+- id: front_porch_motion_off
+  alias: Front porch off after 10min when motion off
   trigger:
     - platform: state
       entity_id: binary_sensor.ring_front_door_motion
@@ -164,7 +172,8 @@
     service: homeassistant.turn_off
     entity_id: switch.porch
 
-- alias: Set up bedtime lights @22:30
+- id: activate_bedtime_scene
+  alias: Set up bedtime lights @22:30
   initial_state: True
   hide_entity: False
   trigger:
@@ -176,7 +185,8 @@
 
 #    - service: shell_command.foscam_location_jackie
 
-- alias: Turn on dinner time lights
+- id: activate_dinner_scene
+  alias: Turn on dinner time lights
   initial_state: True
   hide_entity: False
   trigger:
@@ -196,7 +206,8 @@
     service: scene.turn_on
     entity_id: scene.dusk
 
-- alias: Lights off when no one home
+- id: activate_dark_scene
+  alias: Lights off when no one home
   initial_state: True
   hide_entity: False
   trigger:
@@ -212,28 +223,8 @@
       entity_id: scene.dark
 #    - service: shell_command.foscam_location_dining
 
-
-#- alias: Turn on christmas lights at sunset
-#  initial_state: True
-#  hide_entity: False
-#  trigger:
-#    platform: sun
-#    event: sunset
-#  action:
-#    service: homeassistant.turn_on
-#    entity_id: switch.outdoor_christmas_lights_switch
-
-#- alias: Turn off christmas lights at 9PM
-#  initial_state: True
-#  hide_entity: False
-#  trigger:
-#    platform: time
-#    at: '21:00:00'
-#  action:
-#    service: homeassistant.turn_off
-#    entity_id: switch.outdoor_christmas_lights_switch
-
-- alias: Turn on hallway lights at motion at night
+- id: activate_hallway_motion
+  alias: Turn on hallway lights at motion at night
   initial_state: True
   hide_entity: False
   trigger:
@@ -248,7 +239,8 @@
     service: homeassistant.turn_on
     entity_id: script.timed_guest_hallway
 
-- alias: Turn on kitchen lights at motion at night
+- id: activate_kitchen_motion
+  alias: Turn on kitchen lights at motion at night
   initial_state: True
   hide_entity: False
   trigger:
@@ -266,7 +258,8 @@
       data:
         message: "Motion seen in kitchen @ {{ now().strftime('%a %-I:%M %p') }}"
 
-- alias: Kitchen off after 4min when motion off
+- id: kitchen_motion_timer
+  alias: Kitchen off after 4min when motion off
   trigger:
     - platform: state
       entity_id: sensor.kitchen_motion
@@ -281,7 +274,8 @@
     service: light.turn_off
     entity_id: light.kitchen_level
 
-- alias: Turn on master hallway when door opens
+- id: activate_master_hallway
+  alias: Turn on master hallway when door opens
   initial_state: True
   hide_entity: False
   trigger:
@@ -292,7 +286,8 @@
     service: homeassistant.turn_on
     entity_id: script.timed_master_hallway
 
-- alias: Turn on patio when door opens
+- id: activate_patio
+  alias: Turn on patio when door opens
   initial_state: True
   hide_entity: False
   trigger:
@@ -307,7 +302,8 @@
     service: homeassistant.turn_on
     entity_id: script.timed_patio 
 
-- alias: Turn on office when door opens
+- id: activate_office
+  alias: Turn on office when door opens
   initial_state: True
   hide_entity: False
   trigger:
@@ -322,7 +318,8 @@
     service: homeassistant.turn_on
     entity_id: switch.office_switch
 
-- alias: Office light off after 10min when door closed
+- id: office_light_timer
+  alias: Office light off after 10min when door closed
   trigger:
     - platform: state
       entity_id: sensor.office_door
@@ -337,7 +334,8 @@
     service: homeassistant.turn_off
     entity_id: switch.office_switch
 
-- alias: Notify if fridge open too long
+- id: notify_fridge
+  alias: Notify if fridge open too long
   initial_state: True
   hide_entity: False
   trigger:
@@ -351,7 +349,8 @@
     data:
       message: "Fridge left open!"
 
-- alias: Notify if garage open too long
+- id: notify_garage
+  alias: Notify if garage open too long
   initial_state: True
   hide_entity: False
   trigger:
@@ -365,7 +364,8 @@
     data:
       message: "Garage door left open!"
 
-- alias: Turn on garage lights when door is opened
+- id: activate_garage_lights
+  alias: Turn on garage lights when door is opened
   initial_state: True
   hide_entity: False
   trigger:
@@ -382,7 +382,8 @@
 ########################################
 #Trigger scene changes based upon media#
 ########################################
-- alias: "Bedroom Roku stopped"
+- id: bedroom_roku_stopped
+  alias: "Bedroom Roku stopped"
   trigger:
     - platform: state
       entity_id: media_player.bedroom
@@ -399,7 +400,8 @@
     service: scene.turn_on
     entity_id: scene.dark
 
-- alias: "Bedroom Roku no longer idle"
+- id: bedoom_roku_started
+  alias: "Bedroom Roku no longer idle"
   trigger:
     - platform: state
       entity_id: media_player.bedroom
