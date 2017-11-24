@@ -10,7 +10,7 @@ default_view:
     - group.outside
     - group.livingareas
     - group.overrides
-#    - group.holiday
+    - group.holidays
 
 Cameras:
   view: yes
@@ -50,6 +50,11 @@ LivingAreas:
     - light.kitchen_level
     - light.living_room_level
     - switch.office_switch
+
+Holidays:
+  name: Holiday lights
+  entities:
+    - switch.outdoor_christmas_lights_switch
     - switch.living_room_outlet_switch
 
 Garage:
@@ -81,10 +86,6 @@ Bedrooms:
     - light.mario_lamp_level
     - light.caitlin_lamp_level
     - switch.james_switch
-
-#holiday:
-#  entities:
-#    - switch.outdoor_christmas_lights_switch
 
 Temperatures:
   entities:

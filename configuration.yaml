@@ -257,6 +257,10 @@ scene:
         state: off
       light.master_hall_level:
         state: off
+      switch.living_room_outlet_switch:
+        state: off
+      switch.christmas_lights_switch:
+        state: off
 
   - name: Morning
     entities:
@@ -274,6 +278,8 @@ scene:
       light.guest_hall_level:
         state: on
         brightness: 100
+      switch.living_room_outlet_switch:
+        state: on
 
   - name: Dark
     entities:
@@ -305,6 +311,8 @@ scene:
         state: off
       switch.living_room_outlet_switch:
         state: off
+      switch.christmas_lights_switch:
+        state: off
 
   - name: Dusk
     entities:
@@ -322,6 +330,10 @@ scene:
       light.kitchen_level:
         state: on
         brightness: 255
+      switch.living_room_outlet_switch:
+        state: on
+      switch.christmas_lights_switch:
+        state: on
 
 script:
   timed_guest_hallway:
@@ -550,3 +562,6 @@ google_assistant:
 duckdns:
   domain: !secret duckdns_domain
   access_token: !secret duckdns_token
+
+#not yet ready
+#cloud:

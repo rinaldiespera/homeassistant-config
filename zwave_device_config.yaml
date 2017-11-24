@@ -19,7 +19,7 @@ light.powder_hall_level:
   polling_intensity: 1
   ignored: false
 switch.outdoor_christmas_lights_switch:
-  ignored: true
+  ignored: false
 light.kitchen_level:
   ignored: false
   polling_intensity: 1
