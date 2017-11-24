@@ -97,6 +97,6 @@ scene.watch_tv_bedroom:
 switch.office_switch:
   friendly_name: Office
 switch.living_room_outlet_switch:
-  friendly_name: Chistmas tree
+  friendly_name: Christmas tree
 switch.outdoor_christmas_lights_switch:
   friendly_name: Light show
