@@ -9,7 +9,7 @@ default_view:
     - group.garage
     - group.outside
     - group.livingareas
-    - group.overrides
+    - group.sliders
     - group.holidays
 
 Cameras:
@@ -112,9 +112,9 @@ household:
   - group.bobby
   - group.jen
 
-overrides:
+sliders:
   entities:
-  - input_boolean.override_home
+  - input_boolean.presence_detection
 
 devices:
   name: WiFi devices

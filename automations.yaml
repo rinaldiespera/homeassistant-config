@@ -214,6 +214,9 @@
     - condition: time
       after: '17:30:00'
       before: '21:00:00'
+    - condition: state
+      entity_id: input_boolean.presence_detection
+      state: 'on'
   action:
     service: scene.turn_on
     entity_id: scene.dusk
@@ -228,8 +231,8 @@
       to: 'not_home'
   condition:
     - condition: state
-      entity_id: input_boolean.override_home
-      state: 'off'
+      entity_id: input_boolean.presence_detection
+      state: 'on'
   action:
     - service: scene.turn_on
       entity_id: scene.dark
