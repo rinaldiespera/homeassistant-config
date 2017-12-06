@@ -3,13 +3,13 @@ default_view:
   view: yes
   icon: mdi:home
   entities:
+    - group.options
     - group.temperatures
     - group.bedrooms
     - group.hallways
     - group.garage
     - group.outside
     - group.livingareas
-    - group.sliders
     - group.holidays
 
 Cameras:
@@ -112,7 +112,7 @@ household:
   - group.bobby
   - group.jen
 
-sliders:
+options:
   entities:
   - input_boolean.presence_detection
 
