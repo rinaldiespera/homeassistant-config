@@ -448,10 +448,10 @@
     entity_id: scene.watch_tv_bedroom
 
 - id: update_google_assistant
-  alias: 'Update Google Assistant'
+  alias: 'Update Google Assistant when zwave is ready'
   trigger:
-    platform: homeassistant
-    event: start
+    platform: event
+    event_type: zwave.network_ready
   action:
    - service: google_assistant.request_sync
 
