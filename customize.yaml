@@ -100,3 +100,6 @@ switch.living_room_outlet_switch:
   friendly_name: Christmas tree
 switch.outdoor_christmas_lights_switch:
   friendly_name: Light show
+media_player.lg_webos_smart_tv:
+  google_assistant: true
+  friendly_name: LG TV

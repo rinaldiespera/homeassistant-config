@@ -140,6 +140,19 @@
       data:
         message: "Time to change the kitchen motion battery"
 
+- id: front_porch_ding
+  alias: Front porch doorbell
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ring_front_door_ding
+      to: 'on'
+  action:
+    - service: notify.webostv
+      data:
+        message: "Someone is at the front door"
+
 - id: front_porch_motion
   alias: Front porch motion
   initial_state: True
@@ -153,8 +166,11 @@
       entity_id: sun.sun
       state: 'below_horizon'
   action:
-    service: homeassistant.turn_on
-    entity_id: switch.porch
+    - service: homeassistant.turn_on
+      entity_id: switch.porch
+    - service: notify.webostv
+      data:
+        message: "Movement detected: Front Door"
 
 - id: front_porch_motion_off
   alias: Front porch off after 10min when motion off
@@ -438,3 +454,38 @@
     event: start
   action:
    - service: google_assistant.request_sync
+
+- id: turn_lg_tv_on
+  alias: "LG TV turned on"
+  trigger:
+    - platform: state
+      entity_id: media_player.lg_webos_smart_tv
+      to: 'playing'
+  condition:
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.watch_tv_living_room
+
+- id: turn_lg_tv_off
+  alias: "LG TV turned off"
+  trigger:
+    - platform: state
+      entity_id: media_player.lg_webos_smart_tv
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+  action:
+    service: light.turn_on
+    entity_id: light.living_room_level
+    data:
+      brightness: 100

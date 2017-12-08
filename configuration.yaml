@@ -22,10 +22,12 @@ http:
   ssl_key: !secret ssl_key_path
 
 notify:
-  platform: html5
-  gcm_api_key: !secret gcm_sender_key
-  gcm_sender_id: !secret gcm_sender_id
-
+  - platform: html5
+    gcm_api_key: !secret gcm_sender_key
+    gcm_sender_id: !secret gcm_sender_id
+  - platform: webostv
+    host: !secret webos_host
+    name: webostv
 config:
 
 # Checks for available updates
@@ -530,11 +532,19 @@ tts:
     cache_dir: /tmp/tts
     time_memory: 300
 
+wake_on_lan:
+
 media_player:
   - platform: tts_bluetooth_speaker
     address: !secret echo_bluetooth_address
     volume: 0.8
     cache_dir: /tmp/tts
+  - platform: webostv
+    host: !secret webos_host
+    turn_on_action:
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: !secret webos_mac
 
 mqtt:
   broker: !secret mqtt_server
