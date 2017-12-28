@@ -162,6 +162,10 @@
     - service: notify.webostv
       data:
         message: "Someone is at the front door"
+    - service: tts.google_say
+      entity_id: media_player.kitchen_speaker
+      data:
+        message: "Ding! Someone is at the front door"
 
 - id: front_porch_motion
   alias: Front porch motion
@@ -173,14 +177,24 @@
       to: 'on'
   condition:
     - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
+      entity_id: group.household
+      state: 'home'
+    - condition: time
+      after: '07:00:00'
+      before: '22:00:00'
+    - condition: state
+      entity_id: input_boolean.presence_detection
+      state: 'on'
   action:
     - service: homeassistant.turn_on
       entity_id: switch.porch
     - service: notify.webostv
       data:
         message: "Movement detected: Front Door"
+    - service: tts.google_say
+      entity_id: media_player.kitchen_speaker
+      data:
+        message: "I think someone might be at the door"
 
 - id: front_porch_motion_off
   alias: Front porch off after 10min when motion off
