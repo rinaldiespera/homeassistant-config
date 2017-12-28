@@ -261,8 +261,8 @@ scene:
         state: off
       switch.living_room_outlet_switch:
         state: off
-      switch.outdoor_christmas_lights_switch:
-        state: off
+#      switch.outdoor_christmas_lights_switch:
+#        state: off
 
   - name: Morning
     entities:
@@ -313,8 +313,8 @@ scene:
         state: off
       switch.living_room_outlet_switch:
         state: off
-      switch.outdoor_christmas_lights_switch:
-        state: off
+#      switch.outdoor_christmas_lights_switch:
+#        state: off
 
   - name: Dusk
     entities:
@@ -334,8 +334,8 @@ scene:
         brightness: 255
       switch.living_room_outlet_switch:
         state: on
-      switch.outdoor_christmas_lights_switch:
-        state: on
+#      switch.outdoor_christmas_lights_switch:
+#        state: on
 
 script:
   timed_guest_hallway:

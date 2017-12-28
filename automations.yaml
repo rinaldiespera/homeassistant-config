@@ -188,17 +188,17 @@
     service: homeassistant.turn_off
     entity_id: switch.porch
 
-- id: activate_holidays
-  alias: Turn on holiday lights @sundown
-  initial_state: True
-  hide_entity: False
-  trigger:
-    - platform: state
-      entity_id: sun.sun
-      to: 'below_horizon'
-  action:
-    service: homeassistant.turn_on
-    entity_id: switch.outdoor_christmas_lights_switch
+#- id: activate_holidays
+#  alias: Turn on holiday lights @sundown
+#  initial_state: True
+#  hide_entity: False
+#  trigger:
+#    - platform: state
+#      entity_id: sun.sun
+#      to: 'below_horizon'
+#  action:
+#    service: homeassistant.turn_on
+#    entity_id: switch.outdoor_christmas_lights_switch
 
 - id: activate_bedtime_scene
   alias: Set up bedtime lights @22:30
