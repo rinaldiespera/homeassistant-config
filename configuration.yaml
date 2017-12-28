@@ -447,6 +447,12 @@ binary_sensor:
       - motion
   - platform: mqtt
     state_topic: "home-assistant/camera/motion"
+    name: "Camera Motion"
+  - platform: mqtt
+    state_topic: "dash/glad_button"
+    name: "Glad button"
+    payload_on: "active"
+    payload_off: "inactive"
 
 alexa:
 

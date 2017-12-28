@@ -22,11 +22,21 @@
         entity_id: media_player.tts_bluetooth_speaker
         message: 'zwave network is ready'
 
+- id: Power_off_button
+  alias: power off button
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.glad_button
+      to: 'on'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.dark
+
 - id: james_alert
   alias: james alert
   trigger:
     - platform: state
-      entity_id: binary_sensor.mqtt_binary_sensor
+      entity_id: binary_sensor.camera_motion
       to: 'on'
   action:
     - service: notify.html5_mario_moto_z_play
@@ -461,7 +471,6 @@
     - platform: state
       entity_id: media_player.lg_webos_smart_tv
       to: 'playing'
-  condition:
   condition:
     condition: and
     conditions:
