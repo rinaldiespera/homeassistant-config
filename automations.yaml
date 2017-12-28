@@ -186,8 +186,6 @@
       entity_id: input_boolean.presence_detection
       state: 'on'
   action:
-    - service: homeassistant.turn_on
-      entity_id: switch.porch
     - service: notify.webostv
       data:
         message: "Movement detected: Front Door"
@@ -195,22 +193,6 @@
       entity_id: media_player.kitchen_speaker
       data:
         message: "I think someone might be at the door"
-
-- id: front_porch_motion_off
-  alias: Front porch off after 10min when motion off
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.ring_front_door_motion
-      to: 'off'
-      for:
-        minutes: 10
-  condition:
-    - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
-  action:
-    service: homeassistant.turn_off
-    entity_id: switch.porch
 
 #- id: activate_holidays
 #  alias: Turn on holiday lights @sundown

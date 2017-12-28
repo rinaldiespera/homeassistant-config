@@ -335,6 +335,8 @@ scene:
         brightness: 255
       switch.living_room_outlet_switch:
         state: on
+      switch.porch:
+        state: on
 #      switch.outdoor_christmas_lights_switch:
 #        state: on
 
