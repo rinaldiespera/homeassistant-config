@@ -109,10 +109,11 @@ household:
   entities:
   - group.mario
   - group.caitlin
+  - group.joey
   - group.carol
   - group.marc
   - group.bobby
-  - group.jen
+  - group.babysitter
 
 options:
   entities:
@@ -164,20 +165,33 @@ caitlin:
   entities:
   - device_tracker.caitlin_android
 
+joey:
+  name: Joey Limonciello
+  icon: mdi:account
+  entities:
+  - device_tracker.androiddbc8316c8ecd7477
+
 marc:
   name: Marc Elmore
   icon: mdi:account
   entities:
   - device_tracker.marcelmesiphone
+  - device_tracker.marcsipad
+  - device_tracker.marcelmesiphone_2
+  - device_tracker.christoplewatch
 
 bobby:
   name: Robert Elmore
   icon: mdi:account
   entities:
   - device_tracker.bobbysiphone
+  - device_tracker.bobbysiphone_2
 
-jen:
-  name: Jen carnes
+babysitter:
+  name: Babysitters
   icon: mdi:account
   entities:
   - device_tracker.jencarnes
+  - device_tracker.monicawnsiphone
+  - device_tracker.monicasair
+  - device_tracker.monicasplewatch
