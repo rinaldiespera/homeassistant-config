@@ -386,7 +386,7 @@
   action:
     - service: notify.notify
       data:
-        message: "Fridge left open!"
+        message: "Fridge left open @ {{ now().strftime('%a %-I:%M %p') }}!"
     - service: tts.google_say
       entity_id: media_player.kitchen_speaker
       data:
@@ -403,9 +403,13 @@
     for:
       minutes: 5
   action:
-    service: notify.notify
-    data:
-      message: "Garage door left open!"
+    - service: notify.notify
+      data:
+        message: "Garage door left open @ {{ now().strftime('%a %-I:%M %p') }}!"
+    - service: tts.google_say
+      entity_id: media_player.kitchen_speaker
+      data:
+        message: "Fridge left open!"
 
 - id: activate_garage_lights
   alias: Turn on garage lights when door is opened
