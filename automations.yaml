@@ -58,7 +58,7 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.batt_fridge_door
-      below: 5
+      below: 20
   condition: 
       condition: numeric_state
       entity_id: sensor.batt_fridge_door
@@ -86,7 +86,7 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.batt_garage_house_door
-      below: 5
+      below: 20
   condition:
       condition: numeric_state
       entity_id: sensor.batt_garage_house_door
@@ -114,7 +114,7 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.batt_garage_door
-      below: 5
+      below: 20
   condition:
       condition: numeric_state
       entity_id: sensor.batt_garage_door
@@ -142,7 +142,7 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.batt_patio_door
-      below: 5
+      below: 20
   condition:
       condition: numeric_state
       entity_id: sensor.batt_patio_door
@@ -170,7 +170,7 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.batt_guest_motion
-      below: 5
+      below: 20
   condition:
       condition: numeric_state
       entity_id: sensor.batt_guest_motion
@@ -198,7 +198,7 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.batt_kitchen_motion
-      below: 5
+      below: 20
   condition:
       condition: numeric_state
       entity_id: sensor.batt_kitchen_motion
