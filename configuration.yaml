@@ -341,6 +341,21 @@ scene:
 #        state: on
 
 script:
+  notify_tv:
+    alias: "Notify on the TV"
+    sequence:
+      - service: notify.webostv
+        data_template:
+          message: "{{ message }}"
+
+  notify_google_home:
+    alias: "Notify on Google Home"
+    sequence:
+      - service: tts.google_say
+        entity_id: media_player.kitchen_speaker
+        data_template:
+          message: "{{ message }}"
+
   timed_guest_hallway:
     alias: "Turn on guest hallway and set timer"
     sequence:

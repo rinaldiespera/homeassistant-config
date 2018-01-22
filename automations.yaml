@@ -23,6 +23,7 @@
         message: 'zwave network is ready'
 
 - id: Power_off_button
+  hide_entity: True
   alias: power off button
   trigger:
     - platform: state
@@ -53,7 +54,7 @@
 - id: fridge_low_battery
   alias: Fridge Low battery
   initial_state: True
-  hide_entity: False
+  hide_entity: True
   trigger:
     - platform: numeric_state
       entity_id: sensor.batt_fridge_door
@@ -63,14 +64,25 @@
       entity_id: sensor.batt_fridge_door
       above: 0
   action:
-      service: notify.notify
+    - service: notify.notify
       data:
         message: "Time to change the fridge door battery"
+    - service: script.turn_on
+      data:
+        variables:
+          message: "Time to change the fridge door battery"
+      data_template:
+        entity_id: >-
+          {% if is_state("media_player.lg_webos_smart_tv", "off") %}
+          script.notify_google_home
+          {% else %}
+          script.notify_tv
+          {% endif %}
 
 - id: garage_house_low_battery
   alias: Garage/House Low battery
   initial_state: True
-  hide_entity: False
+  hide_entity: True
   trigger:
     - platform: numeric_state
       entity_id: sensor.batt_garage_house_door
@@ -80,14 +92,25 @@
       entity_id: sensor.batt_garage_house_door
       above: 0
   action:
-      service: notify.notify
+    - service: notify.notify
       data:
         message: "Time to change the garage/house door battery"
+    - service: script.turn_on
+      data:
+        variables:
+          message: "Time to change the garage/house door battery"
+      data_template:
+        entity_id: >-
+          {% if is_state("media_player.lg_webos_smart_tv", "off") %}
+          script.notify_google_home
+          {% else %}
+          script.notify_tv
+          {% endif %}
 
 - id: garage_low_battery
   alias: Garage Low battery
   initial_state: True
-  hide_entity: False
+  hide_entity: True
   trigger:
     - platform: numeric_state
       entity_id: sensor.batt_garage_door
@@ -97,14 +120,25 @@
       entity_id: sensor.batt_garage_door
       above: 0
   action:
-      service: notify.notify
+    - service: notify.notify
       data:
         message: "Time to change the garage door battery"
+    - service: script.turn_on
+      data:
+        variables:
+          message: "Time to change the garage door battery"
+      data_template:
+        entity_id: >-
+          {% if is_state("media_player.lg_webos_smart_tv", "off") %}
+          script.notify_google_home
+          {% else %}
+          script.notify_tv
+          {% endif %}
 
 - id: patio_door_low_battery
   alias: Patio door Low battery
   initial_state: True
-  hide_entity: False
+  hide_entity: True
   trigger:
     - platform: numeric_state
       entity_id: sensor.batt_patio_door
@@ -114,14 +148,25 @@
       entity_id: sensor.batt_patio_door
       above: 0
   action:
-      service: notify.notify
+    - service: notify.notify
       data:
         message: "Time to change the patio door battery"
+    - service: script.turn_on
+      data:
+        variables:
+          message: "Time to change the patio door battery"
+      data_template:
+        entity_id: >-
+          {% if is_state("media_player.lg_webos_smart_tv", "off") %}
+          script.notify_google_home
+          {% else %}
+          script.notify_tv
+          {% endif %}
 
 - id: hallway_motion_low_battery
   alias: Hallway motion Low battery
   initial_state: True
-  hide_entity: False
+  hide_entity: True
   trigger:
     - platform: numeric_state
       entity_id: sensor.batt_guest_motion
@@ -131,14 +176,25 @@
       entity_id: sensor.batt_guest_motion
       above: 0
   action:
-      service: notify.notify
+    - service: notify.notify
       data:
         message: "Time to change the hallway motion sensor battery"
+    - service: script.turn_on
+      data:
+        variables:
+          message: "Time to change the hallway motion sensor battery"
+      data_template:
+        entity_id: >-
+          {% if is_state("media_player.lg_webos_smart_tv", "off") %}
+          script.notify_google_home
+          {% else %}
+          script.notify_tv
+          {% endif %}
 
 - id: kitchen_motion_low_battery
   alias: Kitchen motion Low battery
   initial_state: True
-  hide_entity: False
+  hide_entity: True
   trigger:
     - platform: numeric_state
       entity_id: sensor.batt_kitchen_motion
@@ -148,31 +204,46 @@
       entity_id: sensor.batt_kitchen_motion
       above: 0
   action:
-      service: notify.notify
+    - service: notify.notify
       data:
         message: "Time to change the kitchen motion battery"
+    - service: script.turn_on
+      data:
+        variables:
+          message: "Time to change the kitchen motion battery"
+      data_template:
+        entity_id: >-
+          {% if is_state("media_player.lg_webos_smart_tv", "off") %}
+          script.notify_google_home
+          {% else %}
+          script.notify_tv
+          {% endif %}
 
 - id: front_porch_ding
   alias: Front porch doorbell
   initial_state: True
-  hide_entity: False
+  hide_entity: True
   trigger:
     - platform: state
       entity_id: binary_sensor.ring_front_door_ding
       to: 'on'
   action:
-    - service: notify.webostv
+    - service: script.turn_on
       data:
-        message: "Someone is at the front door"
-    - service: tts.google_say
-      entity_id: media_player.kitchen_speaker
-      data:
-        message: "Ding! Someone is at the front door"
+        variables:
+          message: "Someone is at the front door"
+      data_template:
+        entity_id: >-
+          {% if is_state("media_player.lg_webos_smart_tv", "off") %}
+          script.notify_google_home
+          {% else %}
+          script.notify_tv
+          {% endif %}
 
 - id: front_porch_motion
   alias: Front porch motion
   initial_state: True
-  hide_entity: False
+  hide_entity: True
   trigger:
     - platform: state
       entity_id: binary_sensor.ring_front_door_motion
@@ -188,13 +259,17 @@
       entity_id: input_boolean.presence_detection
       state: 'on'
   action:
-    - service: notify.webostv
+    - service: script.turn_on
       data:
-        message: "Movement detected: Front Door"
-    - service: tts.google_say
-      entity_id: media_player.kitchen_speaker
-      data:
-        message: "I think someone might be at the door"
+        variables:
+          message: "I think someone might be at the door"
+      data_template:
+        entity_id: >-
+          {% if is_state("media_player.lg_webos_smart_tv", "off") %}
+          script.notify_google_home
+          {% else %}
+          script.notify_tv
+          {% endif %}
 
 #- id: activate_holidays
 #  alias: Turn on holiday lights @sundown
@@ -211,7 +286,7 @@
 - id: activate_bedtime_scene
   alias: Set up bedtime lights @22:30
   initial_state: True
-  hide_entity: False
+  hide_entity: True
   trigger:
     platform: time
     at: '22:30:00'
@@ -224,7 +299,7 @@
 - id: activate_dinner_scene
   alias: Turn on dinner time lights
   initial_state: True
-  hide_entity: False
+  hide_entity: True
   trigger:
     - platform: time
       at: '17:30:00'
@@ -248,7 +323,7 @@
 - id: activate_dark_scene
   alias: Lights off when no one home
   initial_state: True
-  hide_entity: False
+  hide_entity: True
   trigger:
     - platform: state
       entity_id: group.household
@@ -265,7 +340,7 @@
 - id: activate_hallway_motion
   alias: Turn on hallway lights at motion at night
   initial_state: True
-  hide_entity: False
+  hide_entity: True
   trigger:
     - platform: state
       entity_id: sensor.guest_motion
@@ -281,7 +356,7 @@
 - id: activate_kitchen_motion
   alias: Turn on kitchen lights at motion at night
   initial_state: True
-  hide_entity: False
+  hide_entity: True
   trigger:
     - platform: state
       entity_id: sensor.kitchen_motion
@@ -299,6 +374,7 @@
 
 - id: kitchen_motion_timer
   alias: Kitchen off after 4min when motion off
+  hide_entity: True
   trigger:
     - platform: state
       entity_id: sensor.kitchen_motion
@@ -315,8 +391,8 @@
 
 - id: activate_master_hallway
   alias: Turn on master hallway when door opens
+  hide_entity: True
   initial_state: True
-  hide_entity: False
   trigger:
     platform: state
     entity_id: sensor.garage_house_door_alarm_level
@@ -327,8 +403,8 @@
 
 - id: activate_patio
   alias: Turn on patio when door opens
+  hide_entity: True
   initial_state: True
-  hide_entity: False
   trigger:
     platform: state
     entity_id: sensor.patio_door
@@ -343,8 +419,8 @@
 
 - id: activate_office
   alias: Turn on office when door opens
+  hide_entity: True
   initial_state: True
-  hide_entity: False
   trigger:
     platform: state
     entity_id: sensor.office_door
@@ -359,6 +435,7 @@
 
 - id: office_light_timer
   alias: Office light off after 10min when door closed
+  hide_entity: True
   trigger:
     - platform: state
       entity_id: sensor.office_door
@@ -376,7 +453,7 @@
 - id: notify_fridge
   alias: Notify if fridge open too long
   initial_state: True
-  hide_entity: False
+  hide_entity: True
   trigger:
     platform: state
     entity_id: sensor.fridge_door
@@ -387,15 +464,23 @@
     - service: notify.notify
       data:
         message: "Fridge left open @ {{ now().strftime('%a %-I:%M %p') }}!"
-    - service: tts.google_say
-      entity_id: media_player.kitchen_speaker
+    - service: script.turn_on
       data:
-        message: "Fridge left open!"
+        variables:
+          message: "The refrigerator is left open!"
+      data_template:
+        entity_id: >-
+          {% if is_state("media_player.lg_webos_smart_tv", "off") %}
+          script.notify_google_home
+          {% else %}
+          script.notify_tv
+          {% endif %}
+
 
 - id: notify_garage
   alias: Notify if garage open too long
   initial_state: True
-  hide_entity: False
+  hide_entity: True
   trigger:
     platform: state
     entity_id: sensor.garage_door
@@ -406,15 +491,22 @@
     - service: notify.notify
       data:
         message: "Garage door left open @ {{ now().strftime('%a %-I:%M %p') }}!"
-    - service: tts.google_say
-      entity_id: media_player.kitchen_speaker
+    - service: script.turn_on
       data:
-        message: "Garage door left open!"
+        variables:
+          message: "The garage door was left open!"
+      data_template:
+        entity_id: >-
+          {% if is_state("media_player.lg_webos_smart_tv", "off") %}
+          script.notify_google_home
+          {% else %}
+          script.notify_tv
+          {% endif %}
 
 - id: activate_garage_lights
   alias: Turn on garage lights when door is opened
   initial_state: True
-  hide_entity: False
+  hide_entity: True
   trigger:
     - platform: state
       entity_id: sensor.garage_door
@@ -431,6 +523,7 @@
 ########################################
 - id: bedroom_roku_stopped
   alias: "Bedroom Roku stopped"
+  hide_entity: True
   trigger:
     - platform: state
       entity_id: media_player.bedroom
@@ -449,6 +542,7 @@
 
 - id: bedoom_roku_started
   alias: "Bedroom Roku no longer idle"
+  hide_entity: True
   trigger:
     - platform: state
       entity_id: media_player.bedroom
@@ -465,6 +559,7 @@
 
 - id: update_google_assistant
   alias: 'Update Google Assistant when zwave is ready'
+  hide_entity: True
   trigger:
     platform: event
     event_type: zwave.network_ready
@@ -473,6 +568,7 @@
 
 - id: turn_lg_tv_on
   alias: "LG TV turned on"
+  hide_entity: True
   trigger:
     - platform: state
       entity_id: media_player.lg_webos_smart_tv
@@ -489,6 +585,7 @@
 
 - id: turn_lg_tv_off
   alias: "LG TV turned off"
+  hide_entity: True
   trigger:
     - platform: state
       entity_id: media_player.lg_webos_smart_tv
