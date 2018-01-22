@@ -409,7 +409,7 @@
     - service: tts.google_say
       entity_id: media_player.kitchen_speaker
       data:
-        message: "Fridge left open!"
+        message: "Garage door left open!"
 
 - id: activate_garage_lights
   alias: Turn on garage lights when door is opened
